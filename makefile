@@ -1,4 +1,4 @@
-run bubble_sort:
+run bubble_sort_go:
 	go run bubble_sort.go
 
 build bubble_sort:
