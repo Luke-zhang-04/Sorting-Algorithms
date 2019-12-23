@@ -37,6 +37,7 @@ func bubble_sort(array []int) []int {
 
 func main() {
 	shuffled_array := random_sequence(0, 1000)
+	fmt.Println("BUBBLE SORT")
 	fmt.Println(shuffled_array)
 	fmt.Println()
 	fmt.Println(bubble_sort(shuffled_array))

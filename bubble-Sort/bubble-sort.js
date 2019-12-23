@@ -28,5 +28,6 @@ function bubble_sort(array) {
 }
 
 let shuffled_array = random_sequence(0, 1000)
-console.log(shuffled_array.toString())
+console.log("BUBBLE SORT")
+console.log(shuffled_array.toString(), "\n")
 console.log(bubble_sort(shuffled_array).toString())

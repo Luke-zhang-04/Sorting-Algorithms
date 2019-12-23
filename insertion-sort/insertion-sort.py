@@ -16,6 +16,8 @@ if __name__ == "__main__":
     sys.path.insert(0, parent_dir_path)
     from shuffler import random_sequence
 
+    print("INSERTION SORT")
+
     shuffled_array = random_sequence(0, 1000)
 
     print(shuffled_array, "\n")
