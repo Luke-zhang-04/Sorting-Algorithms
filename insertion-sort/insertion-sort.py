@@ -1,14 +1,13 @@
-def bubble_sort(array): #BUBBLE SORT
-    while True:
-        swaps = 0
-        for i in range(len(array)-1): #iterate through the array
-            if array[i] > array[i + 1]: #swap if needed
-                array[i], array[i+1] = array[i+1], array[i]
-                swaps += 1
-        if swaps == 0: break #array is in order
-        
+def insertion_sort(array):
+    for i in range(1, len(array)):
+        comparator = array[i]
+        for section in range(i-1, -2, -1):
+            if comparator > array[section]:
+                array[section+1] = comparator
+                break
+            else: array[section+1] = array[section]
+        else: array[section+1] = comparator
     return array
-
 
 if __name__ == "__main__":
     import os, sys #import shuffler from parent directory
@@ -21,4 +20,4 @@ if __name__ == "__main__":
 
     print(shuffled_array, "\n")
 
-    print(bubble_sort(shuffled_array))
+    print(insertion_sort(shuffled_array))
