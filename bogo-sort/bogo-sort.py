@@ -2,7 +2,7 @@
 
 from random import shuffle
 
-def is_sorted(array):
+def is_sorted(array): #if array is sorted
     for i in range(len(array)-1):
         if array[i+1] < array[i]: return False
 
@@ -10,7 +10,7 @@ def is_sorted(array):
 
 def bogo_sort(array):
     shuffle(array) #shuffles the array
-    return array if is_sorted(array) == True else bogo_sort(array) #check if the array is sorted, otherwise recurse
+    return array if is_sorted(array) else bogo_sort(array) #check if the array is sorted, otherwise recurse
 
 if __name__ == "__main__":
     import os, sys #import shuffler from parent directory
