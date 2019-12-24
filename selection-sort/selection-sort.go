@@ -48,7 +48,7 @@ func selection_sort(array []int) []int {
 
 func main() {
 	shuffled_array := random_sequence(0, 1000) //don't set this value too high
-	fmt.Println("BOGO SORT AKA STUPID SORT")
+	fmt.Println("SELECTION SORT")
 	fmt.Println(shuffled_array)
 	fmt.Println()
 	fmt.Println(selection_sort(shuffled_array))
