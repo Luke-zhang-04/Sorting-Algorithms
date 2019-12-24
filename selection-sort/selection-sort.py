@@ -1,6 +1,6 @@
 def selection_sort(array):
     for i in range(len(array)): #iterate through entire array
-        index = array.index(min(array[i:len(array)])) #get index of smallest item
+        index = array.index(min(array[i:])) #get index of smallest item
         array[i], array[index] = array[index], array[i] #swap it to the correct spot
     return array
 

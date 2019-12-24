@@ -40,7 +40,7 @@ func index(array []int, search int) int {
 func selection_sort(array []int) []int {
 	var ind int
 	for i := 0; i < len(array); i++ {
-		ind = index(array, min(array[i:len(array)]))
+		ind = index(array, min(array[i:len(array)+1]))
 		array[i], array[ind] = array[ind], array[i]
 	}
 	return array
