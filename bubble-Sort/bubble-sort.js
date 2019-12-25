@@ -10,9 +10,9 @@ function random_sequence(minimum, maximum) { //returns a shuffled array
 function bubble_sort(array) {
     let swaps //number of swaps
     let temp //for swapping
-    while (true) {
+    for (amt = 0; amt < array.length; amt++) {
         swaps = 0
-        for (i = 0; i < array.length; i++) { //iterate through array
+        for (i = 0; i < array.length-1-amt; i++) { //iterate through array
             if (array[i] > array[i+1]) { //swap if needed
                 temp = array[i+1]
 				array[i+1] = array[i]
