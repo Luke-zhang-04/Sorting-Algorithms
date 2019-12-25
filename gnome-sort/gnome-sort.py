@@ -1,10 +1,10 @@
-def gnome_sort(array): #COCKTAIL SHAKER SORT
+def gnome_sort(array): #GNOME SORT
     i = 1
-    while i < len(array):
-        if array[i] > array[i-1] or i == 0:
+    while i < len(array): #Iterate until end of array
+        if array[i] > array[i-1] or i == 0: #move "gnome" forward if "pots" in  correct order
             i += 1
         else:
-            array[i], array[i-1] = array[i-1], array[i]
+            array[i], array[i-1] = array[i-1], array[i] #swap if needed, go back
             i -= 1
 
     return array
