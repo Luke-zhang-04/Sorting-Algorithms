@@ -9,7 +9,7 @@ def partition(array, pt):
                 break
 
         for i in range(len(array)-1, pt, -1):   
-            if array[pt] >   array[i]:  
+            if array[pt] > array[i]:  
                 array[pt], array[i] = array[i], array[pt]
                 pt = i
                 swaps += 1
