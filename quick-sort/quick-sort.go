@@ -18,21 +18,21 @@ func random_sequence(minimum, maximum int) []int { //returns a shuffled array
 	return array
 }
 
-func partition(array []int, pt int) ([]int, int) {
-	var swaps int
+func partition(array []int, pt int) ([]int, int) { //moves array elements to the correct sides of pivot (pt)
+	var swaps int //keep track of the swaps made
 	for true {
 		swaps = 0
 
-		for i := 0; i < pt; i++ {
-			if array[pt] < array[i] {
+		for i := 0; i < pt; i++ { //start from left side of the pivot (if pivot point isn't 0)
+			if array[pt] < array[i] { //swap if element is larger than pivot
 				array[pt], array[i] = array[i], array[pt]
                 pt = i
                 swaps ++
                 break
 			}
 		}
-		for i := len(array)-1; i > pt; i-- {
-			if array[pt] > array[i] {
+		for i := len(array)-1; i > pt; i-- { //start from right side of the pivot
+			if array[pt] > array[i] { //swap if element is smaller than pivot
 				array[pt], array[i] = array[i], array[pt]
                 pt = i
                 swaps ++
@@ -40,7 +40,7 @@ func partition(array []int, pt int) ([]int, int) {
 			}
 		}
 
-		if swaps == 0 {
+		if swaps == 0 { //pivot is in the correct spot
 			break
 		}
 	}
@@ -48,16 +48,17 @@ func partition(array []int, pt int) ([]int, int) {
 	return array, pt
 }
 
-func combine(array1 []int, array2 []int) []int {
+func combine(array1 []int, array2 []int) []int { //combine two arrays together
 	return append(array1, array2...)
 }
 
 func quick_sort(array []int) []int {
 	if len(array) > 1 {
-		half := len(array) / 2
+		half := len(array) / 2 //midpoint of the array
 		start, middle, end := array[0], array[half], array[len(array)-1]
 		var pivot_pt int
 
+		//choose pivot point (median of the first, middle, and last element) to avoid exponential running time
 		if (start > end && start < middle) || (start < end && start > middle) {
 			pivot_pt = 0
 		} else if  (end > start && end < middle) || (end < start && end > middle) {
@@ -66,13 +67,15 @@ func quick_sort(array []int) []int {
 			pivot_pt = half
 		}
 
+		//move pivot to right spot, move elements onto the correct side of the pivot, and get the new pivot point
 		var pt int
 		array, pt = partition(array, pivot_pt)
 
+		//recursively quicksort the remaining subarrays
 		right := quick_sort(array[pt:])
         left := quick_sort(array[:pt])
 
-		array = combine(left, right)
+		array = combine(left, right) //combine left and right 
 
 	}
 

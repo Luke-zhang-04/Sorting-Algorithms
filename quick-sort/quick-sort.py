@@ -32,12 +32,11 @@ def quick_sort(array):
         #move pivot to right spot, move elements onto the correct side of the pivot, and get the new pivot point
         array, pt = partition(array, pivot_pt)
         
-        #quicksort the remaining subarrays
+        #recursively quicksort the remaining subarrays
         right = quick_sort(array[pt:])
         left = quick_sort(array[:pt])
 
-        #concatenate left and right
-        array = left + right
+        array = left + right #concatenate left and right
 
     return array
 
