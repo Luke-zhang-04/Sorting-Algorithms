@@ -19,7 +19,7 @@ def bubble_sort(array): #BUBBLE SORT
             if array[i] > array[i + 1]: #swap if needed
                 array[i], array[i+1] = array[i+1], array[i]
                 swaps += 1
-                draw_graph(array)
+                draw_graph(array, time = 0.01)
         if swaps == 0: break #array is in order
 
     return array
@@ -28,6 +28,8 @@ shuffled_array = random_sequence(0, 100)
 
 draw_graph(shuffled_array)
 
-bubble_sort(shuffled_array)
+sorted_array = bubble_sort(shuffled_array)
+
+draw_graph(sorted_array, finished = True)
 
 screen.mainloop()
