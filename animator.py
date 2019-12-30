@@ -24,5 +24,5 @@ def draw_graph(array, **kwargs):
     else:
         __main__.counter += 1
         if __main__.counter % 10 == 0:
-            if len(kwargs) == 1: sleep(time)
+            if time != 0.05: sleep(time)
             else: sleep(0.001)
