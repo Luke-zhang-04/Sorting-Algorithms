@@ -24,7 +24,7 @@ def bubble_sort(array): #BUBBLE SORT
 
     return array
 
-shuffled_array = random_sequence(0, 100)
+shuffled_array = random_sequence(0, 50)
 
 draw_graph(shuffled_array)
 

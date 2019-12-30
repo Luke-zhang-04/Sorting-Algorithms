@@ -12,7 +12,7 @@ def draw_graph(array, **kwargs):
     yIncrement = (int(screen['height'])*0.975) / max(array)
     xIncrement = int(screen['width']) / len(array)
     try:
-        if kwargs["finished"] == True:
+        if kwargs["finished"]:
             colour = "green" 
             outline = "black"
         else:
