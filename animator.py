@@ -1,10 +1,13 @@
 from time import sleep
 from random import randint
 
-def draw_graph(array):
+def draw_graph(array, **kwargs):
     import __main__
     screen = __main__.screen
     screen.delete("all")
+
+    try: time = kwargs["time"]
+    except: time = 0.05
     
     yIncrement = (int(screen['height'])*0.975) / max(array)
     xIncrement = int(screen['width']) / len(array)
@@ -17,7 +20,7 @@ def draw_graph(array):
     screen.update()
 
     if len(array) <= 100:
-        sleep(0.05)
+        sleep(time)
     else:
         __main__.counter += 1
         if __main__.counter % 10 == 0:
