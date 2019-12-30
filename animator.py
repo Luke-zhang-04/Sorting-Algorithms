@@ -11,8 +11,15 @@ def draw_graph(array, **kwargs):
     
     yIncrement = (int(screen['height'])*0.975) / max(array)
     xIncrement = int(screen['width']) / len(array)
-    colour = "black" if screen['background'] == "white" else "white"
-    outline = "white" if colour == "black" else "black"
+    try:
+        if kwargs["finished"] == True: colour = "green" 
+        else:
+            colour = "black" if screen['background'] == "white" else "white"
+            outline = "white" if colour == "black" else "black"
+    except:
+        colour = "black" if screen['background'] == "white" else "white"
+        outline = "white" if colour == "black" else "black"
+
 
     for i in range(len(array)):
         screen.create_rectangle(i*xIncrement, int(screen['height']), (i+1)*xIncrement, int(screen['height']) - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
