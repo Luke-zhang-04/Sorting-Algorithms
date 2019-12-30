@@ -4,14 +4,16 @@ from random import randint
 def draw_graph(array, **kwargs):
     import __main__
     screen = __main__.screen
-    screen.delete("all")
+    screen.delete("all") #clear the canvas
 
-    try: time = kwargs["time"]
+    try: time = kwargs["time"] #check if time specified
     except: time = 0.05
     
+    #increments for each bar, and their resective heights
     yIncrement = (int(screen['height'])*0.975) / max(array)
     xIncrement = int(screen['width']) / len(array)
-    try:
+
+    try: #get colours
         if kwargs["finished"]:
             colour = "green" 
             outline = "black"
@@ -23,11 +25,12 @@ def draw_graph(array, **kwargs):
         outline = "white" if colour == "black" else "black"
 
 
-    for i in range(len(array)):
+    for i in range(len(array)): #drawing the rectangles themselves
         screen.create_rectangle(i*xIncrement, int(screen['height']), (i+1)*xIncrement, int(screen['height']) - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
     
     screen.update()
 
+    #determine sleep time
     if len(array) <= 100:
         sleep(time)
     else:
