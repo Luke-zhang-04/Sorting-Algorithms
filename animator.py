@@ -6,21 +6,21 @@ def draw_graph(array, **kwargs):
     screen = __main__.screen
     screen.delete("all") #clear the canvas
 
-    try: time = kwargs["time"] #check if time specified
-    except: time = 0.05
+    if "time" in kwargs: time = kwargs["time"] #check if time specified
+    else: time = 0.05
     
     #increments for each bar, and their resective heights
     yIncrement = (int(screen['height'])*0.975) / max(array)
     xIncrement = int(screen['width']) / len(array)
 
-    try: #get colours
+    if "finished" in kwargs: #get colours
         if kwargs["finished"]:
             colour = "green" 
             outline = "black"
         else:
             colour = "black" if screen['background'] == "white" else "white"
             outline = "white" if colour == "black" else "black"
-    except:
+    else:
         colour = "black" if screen['background'] == "white" else "white"
         outline = "white" if colour == "black" else "black"
 
