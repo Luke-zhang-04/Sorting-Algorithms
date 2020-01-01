@@ -34,8 +34,13 @@ def draw_graph(array, **kwargs):
     screen.update()
 
     #determine sleep time
-    if len(array) <= 100:
+    if len(array) <= 100 and not decrease_time:
         sleep(time)
+    elif len(array) <= 100 and decrease_time:
+        __main__.counter += 1
+        if __main__.counter % 10 == 0:
+            sleep(time)
+            
     elif decrease_time:
         __main__.counter += 1
         if __main__.counter % 10 == 0:
