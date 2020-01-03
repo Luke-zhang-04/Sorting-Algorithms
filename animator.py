@@ -19,10 +19,14 @@ def draw_graph(screen, array, **kwargs):
         current = kwargs["current"]
     else:
         current = None
+
+    height = screen.winfo_height()
+    width = screen.winfo_width()
+
     
     #increments for each bar, and their resective heights
-    yIncrement = (int(screen['height'])*0.975) / max(array)
-    xIncrement = int(screen['width']) / len(array)
+    yIncrement = (height*0.975) / max(array)
+    xIncrement = width / len(array)
 
     red = "#E74C3C"
 
@@ -42,7 +46,7 @@ def draw_graph(screen, array, **kwargs):
         temp = colour
         if i == current:
             colour = red
-        screen.create_rectangle(i*xIncrement, int(screen['height']), (i+1)*xIncrement, int(screen['height']) - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
+        screen.create_rectangle(i*xIncrement, height, (i+1)*xIncrement, height - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
         colour = temp
     screen.update()
 
