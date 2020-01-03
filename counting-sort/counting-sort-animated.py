@@ -31,7 +31,9 @@ def counting_sort(array): #BUBBLE SORT
 
     return output
 
-shuffled_array = random_sequence(0, 100)
+numVals = 100
+
+shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
 
 draw_graph(screen, shuffled_array)
 

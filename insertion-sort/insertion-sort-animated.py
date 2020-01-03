@@ -43,7 +43,9 @@ def insertion_sort(array):
 
     return array
 
-shuffled_array = random_sequence(0, 100)
+numVals = 100
+
+shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
 
 draw_graph(screen, shuffled_array)
 

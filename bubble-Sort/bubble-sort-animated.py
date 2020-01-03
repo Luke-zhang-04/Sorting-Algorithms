@@ -25,7 +25,7 @@ def bubble_sort(array): #BUBBLE SORT
 
     return array
 
-numVals = 12000
+numVals = 50
 
 shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
 
