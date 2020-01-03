@@ -11,6 +11,7 @@ from tkinter import Tk, Canvas
 myInterface = Tk()
 screen = Canvas(myInterface, width=1000, height=800, background = "black")
 screen.pack()
+screen.update()
 
 def bubble_sort(array): #BUBBLE SORT
     for amt in range(len(array)):
@@ -19,17 +20,19 @@ def bubble_sort(array): #BUBBLE SORT
             if array[i] > array[i + 1]: #swap if needed
                 array[i], array[i+1] = array[i+1], array[i]
                 swaps += 1
-                draw_graph(array, time = 0.01)
+                draw_graph(screen, array, current = i+1, changed = [i,i+1])
         if swaps == 0: break #array is in order
 
     return array
 
-shuffled_array = random_sequence(0, 100)
+numVals = 50
 
-draw_graph(shuffled_array)
+shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
+
+draw_graph(screen, shuffled_array)
 
 sorted_array = bubble_sort(shuffled_array)
 
-draw_graph(sorted_array, finished = True)
+draw_graph(screen, sorted_array, finished = True)
 
 screen.mainloop()
