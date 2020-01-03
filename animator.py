@@ -11,6 +11,10 @@ def draw_graph(array, **kwargs):
 
     if "decrease_time" in kwargs and kwargs["decrease_time"]: decrease_time = True
     else: decrease_time = False
+
+    if "decrease" in kwargs and decrease_time:
+        decrease = kwargs["decrease"]
+    else: decrease = 10
     
     #increments for each bar, and their resective heights
     yIncrement = (int(screen['height'])*0.975) / max(array)
@@ -36,15 +40,17 @@ def draw_graph(array, **kwargs):
     #determine sleep time
     if len(array) <= 100 and not decrease_time:
         sleep(time)
+
     elif len(array) <= 100 and decrease_time:
         __main__.counter += 1
-        if __main__.counter % 10 == 0:
+        if __main__.counter % decrease == 0:
             sleep(time)
-            
+
     elif decrease_time:
         __main__.counter += 1
-        if __main__.counter % 10 == 0:
+        if __main__.counter % decrease == 0:
             if time != 0.05: sleep(time)
             else: sleep(0.001)
+
     elif not decrease_time:
         sleep(time)
