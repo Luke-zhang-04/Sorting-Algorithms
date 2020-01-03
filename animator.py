@@ -4,8 +4,9 @@ from random import randint
 def draw_graph(screen, array, **kwargs):
     screen.delete("all") #clear the canvas
 
-    # if "time" in kwargs: time = kwargs["time"] #check if time specified
-    # else: time = 0.05
+    if "time" in kwargs: 
+        time = kwargs["time"] #check if time specified
+    else: time = None
 
     # if "decrease_time" in kwargs and kwargs["decrease_time"]: decrease_time = True
     # else: decrease_time = False
@@ -44,3 +45,6 @@ def draw_graph(screen, array, **kwargs):
         screen.create_rectangle(i*xIncrement, int(screen['height']), (i+1)*xIncrement, int(screen['height']) - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
         colour = temp
     screen.update()
+
+    if not time is None:
+        sleep(time)
