@@ -22,7 +22,7 @@ def draw_graph(array, **kwargs):
 
     if "finished" in kwargs: #get colours
         if kwargs["finished"]:
-            colour = "green" 
+            colour = "#0FC818" 
             outline = "black"
         else:
             colour = "black" if screen['background'] == "white" else "white"
