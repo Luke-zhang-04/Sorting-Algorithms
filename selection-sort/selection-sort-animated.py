@@ -17,7 +17,7 @@ def selection_sort(array):
     for i in range(len(array)): #iterate through entire array
         index = array.index(min(array[i:])) #get index of smallest item
         array[i], array[index] = array[index], array[i] #swap it to the correct spot
-        draw_graph(screen, array, current = i, time = 0.02)
+        draw_graph(screen, array, current = i, time = 0.02, changed=[i,index])
     return array
 
 shuffled_array = random_sequence(0, 100)

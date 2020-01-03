@@ -21,7 +21,7 @@ def gnome_sort(array): #GNOME SORT
         else:
             array[i], array[i-1] = array[i-1], array[i] #swap if needed, go back
             i -= 1
-            draw_graph(screen, array, current = i)
+            draw_graph(screen, array, current = i, changed = [i,i-1])
 
     return array
 

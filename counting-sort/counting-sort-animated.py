@@ -27,7 +27,7 @@ def counting_sort(array): #BUBBLE SORT
         output[count[i]-1] = i
         draw_output[count[i]-1] = i
         count[i] -= 1
-        draw_graph(screen, draw_output, current = i, time = 0.03)
+        draw_graph(screen, draw_output, current = i, time = 0.03,changed=[i])
 
     return output
 

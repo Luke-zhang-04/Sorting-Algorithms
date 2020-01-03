@@ -20,12 +20,14 @@ def bubble_sort(array): #BUBBLE SORT
             if array[i] > array[i + 1]: #swap if needed
                 array[i], array[i+1] = array[i+1], array[i]
                 swaps += 1
-                draw_graph(screen, array, current = i+1)
+                draw_graph(screen, array, current = i+1, changed = [i,i+1])
         if swaps == 0: break #array is in order
 
     return array
 
-shuffled_array = random_sequence(0, 100)
+numVals = 12000
+
+shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
 
 draw_graph(screen, shuffled_array)
 
