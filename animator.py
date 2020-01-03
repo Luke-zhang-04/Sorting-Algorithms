@@ -1,24 +1,36 @@
 from time import sleep
 from random import randint
 
-rects = {}
+rects = []
 
 red = "#E74C3C"
 green = "#0FC818"
 
-def draw_graph(screen, array, finishedInd = -1, time = None, current = None, finished = False):
+prev = None
+
+
+def draw_graph(screen, array, finishedInd = -1, time = None, current = None, finished = False, changed = None):
     height = screen.winfo_height()
     width = screen.winfo_width()
 
-    #increments for each bar, and their resective heights
+    if len(array) >= width:
+        xIncrement = 1
+    else:
+        #increments for each bar, and their resective heights
+        xIncrement = width / len(array)
+    
     yIncrement = (height*0.975) / max(array)
-    xIncrement = width / len(array)
+
+    dx = 1 if xIncrement > 1 else 0
 
     
     colour = "black" if screen['background'] == "white" else "white"
     outline = "white" if colour == "black" else "black"
 
-    for i in range(len(array)): #drawing the rectangles themselves
+    if changed is None or len(rects) < len(array):
+        changed = [i for i in range(len(array))]
+
+    for i in changed: #drawing the rectangles themselves
         if i < finishedInd:
             continue
 
@@ -28,21 +40,35 @@ def draw_graph(screen, array, finishedInd = -1, time = None, current = None, fin
             colour = red
         if i == finishedInd:
             colour = green
-        
-        val = array[i]
-        if val in rects:
-            screen.coords(rects[val],i*xIncrement, height, (i+1)*xIncrement, height - array[i]*yIncrement)
+
+        if len(rects) > i:
+            screen.coords(rects[i],i*xIncrement, height, (i+dx)*xIncrement, height - array[i]*yIncrement)
         else:
-            rects[val] =  screen.create_rectangle(i*xIncrement, height, (i+1)*xIncrement, height - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
-        screen.itemconfig(rects[val],fill = colour)
-        
+            r = screen.create_rectangle(i*xIncrement, height, (i+dx)*xIncrement, height - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
+            rects.append(r)
+
+        screen.itemconfig(rects[i],fill = colour)
+        if xIncrement > 2:
+            screen.itemconfig(rects[i],outline = outline)
+        else:
+            screen.itemconfig(rects[i],outline = colour)
         colour = temp
+    
+    global prev
+    if prev != current and not prev is None:
+        screen.itemconfig(rects[prev],fill = colour)
+        if xIncrement > 2:
+            screen.itemconfig(rects[prev],outline = outline)
+        else:
+            screen.itemconfig(rects[prev],outline = colour)
     screen.update()
+
+    prev = current
 
     if not time is None:
         sleep(time)
     
     if finished:
         for i in range(len(array)):
-            draw_graph(screen, array,finishedInd=i)
+            draw_graph(screen, array,finishedInd=i, changed=[i])
 
