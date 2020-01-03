@@ -22,7 +22,7 @@ def cocktail_shaker_sort(array): #COCKTAIL SHAKER SORT
             if array[amt+i] > array[amt+i+1]: #swap if needed
                 array[amt+i], array[amt+i+1] = array[amt+i+1], array[amt+i]
                 swaps += 1
-                draw_graph(array, time = 0.01)
+                draw_graph(screen, array, current = amt+i+1)
 
         if swaps == 0: break #array is in order, this break statement could save time
 
@@ -30,7 +30,7 @@ def cocktail_shaker_sort(array): #COCKTAIL SHAKER SORT
             if array[amt+i] < array[amt+i-1]: #swap if needed
                 array[amt+i], array[amt+i-1] = array[amt+i-1], array[amt+i]
                 swaps += 1
-                draw_graph(array, time = 0.01)
+                draw_graph(screen, array, current = amt+i-1)
 
         if swaps == 0: break #array is in order
 
@@ -38,10 +38,10 @@ def cocktail_shaker_sort(array): #COCKTAIL SHAKER SORT
 
 shuffled_array = random_sequence(0, 100)
 
-draw_graph(shuffled_array)
+draw_graph(screen, shuffled_array)
 
 sorted_array = cocktail_shaker_sort(shuffled_array)
 
-draw_graph(sorted_array, finished = True)
+draw_graph(screen, sorted_array, finished = True)
 
 screen.mainloop()

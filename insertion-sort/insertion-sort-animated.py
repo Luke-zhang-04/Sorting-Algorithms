@@ -19,23 +19,23 @@ def insertion_sort(array):
         for section in range(i-1, -2, -1): #iterate through array from i backwards
             if comparator > array[section]: #insert comparator into the array, in its correct position
                 array[section+1] = comparator
-                draw_graph(array, time = 0.01)
+                draw_graph(screen, array, current = section+1)
                 break
             else:
                 array[section+1] = array[section] #if comparator <= array[section], move array[section] forward to make space
-                draw_graph(array, time = 0.01)
+                draw_graph(screen, array, current = section+1)
         else:
             array[section+1] = comparator #if loop wasn't broken, insert comparator in the right spot
-            draw_graph(array, time = 0.01)
+            draw_graph(screen, array, current = section+1)
 
     return array
 
 shuffled_array = random_sequence(0, 100)
 
-draw_graph(shuffled_array)
+draw_graph(screen, shuffled_array)
 
 sorted_array = insertion_sort(shuffled_array)
 
-draw_graph(sorted_array, finished = True)
+draw_graph(screen, sorted_array, finished = True)
 
 screen.mainloop()

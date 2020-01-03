@@ -23,15 +23,15 @@ def is_sorted(array): #if array is sorted
 
 def bogo_sort(array):
     shuffle(array) #shuffles the array
-    draw_graph(array, time = 0.25)
+    draw_graph(screen,array, time = 0.15)
     return array if is_sorted(array) else bogo_sort(array) #check if the array is sorted, otherwise recurse
 
 shuffled_array = random_sequence(0, 5)
 
-draw_graph(shuffled_array)
+draw_graph(screen,shuffled_array)
 
 sorted_array = bogo_sort(shuffled_array)
 
-draw_graph(sorted_array, finished = True)
+draw_graph(screen,sorted_array, finished = True)
 
 screen.mainloop()
