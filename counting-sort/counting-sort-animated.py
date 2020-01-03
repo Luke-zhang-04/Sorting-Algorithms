@@ -27,18 +27,16 @@ def counting_sort(array): #BUBBLE SORT
         output[count[i]-1] = i
         draw_output[count[i]-1] = i
         count[i] -= 1
-        draw_graph(screen, draw_output, current = i, time = 0.03,changed=[i])
+        draw_graph(draw_output)
 
     return output
 
-numVals = 100
+shuffled_array = random_sequence(0, 100)
 
-shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
-
-draw_graph(screen, shuffled_array)
+draw_graph(shuffled_array, time = 1)
 
 sorted_array = counting_sort(shuffled_array)
 
-draw_graph(screen, sorted_array, finished = True)
+draw_graph(sorted_array, finished = True)
 
-screen.mainloop()
+screen.mainloop() 

@@ -17,17 +17,15 @@ def selection_sort(array):
     for i in range(len(array)): #iterate through entire array
         index = array.index(min(array[i:])) #get index of smallest item
         array[i], array[index] = array[index], array[i] #swap it to the correct spot
-        draw_graph(screen, array, current = i, time = 0.02, changed=[i,index])
+        draw_graph(array, time = 0.1)
     return array
 
-numVals = 100
+shuffled_array = random_sequence(0, 100)
 
-shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
-
-draw_graph(screen, shuffled_array)
+draw_graph(shuffled_array)
 
 sorted_array = selection_sort(shuffled_array)
 
-draw_graph(screen, sorted_array, finished = True)
+draw_graph(sorted_array, finished = True)
 
-screen.mainloop()
+screen.mainloop() 

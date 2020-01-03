@@ -3,7 +3,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
 sys.path.insert(0, parent_dir_path)
 
-from animator import draw_graph
+from animator2 import draw_graph
 from shuffler import random_sequence
 counter = 0
 

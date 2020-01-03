@@ -1,74 +1,56 @@
 from time import sleep
 from random import randint
 
-rects = []
+def draw_graph(array, **kwargs):
+    import __main__
+    screen = __main__.screen
+    screen.delete("all") #clear the canvas
 
-red = "#E74C3C"
-green = "#0FC818"
+    if "time" in kwargs: time = kwargs["time"] #check if time specified
+    else: time = 0.05
 
-prev = None
+    if "decrease_time" in kwargs and kwargs["decrease_time"]: decrease_time = True
+    else: decrease_time = False
 
+    if "decrease" in kwargs and decrease_time:
+        decrease = kwargs["decrease"]
+    else: decrease = 10
+    
+    #increments for each bar, and their resective heights
+    yIncrement = (int(screen['height'])*0.975) / max(array)
+    xIncrement = int(screen['width']) / len(array)
 
-def draw_graph(screen, array, finishedInd = -1, time = None, current = None, finished = False, changed = None):
-    height = screen.winfo_height()
-    width = screen.winfo_width()
-
-    if len(array) >= width:
-        xIncrement = 1
+    if "finished" in kwargs: #get colours
+        if kwargs["finished"]:
+            colour = "green" 
+            outline = "black"
+        else:
+            colour = "black" if screen['background'] == "white" else "white"
+            outline = "white" if colour == "black" else "black"
     else:
-        #increments for each bar, and their resective heights
-        xIncrement = width / len(array)
+        colour = "black" if screen['background'] == "white" else "white"
+        outline = "white" if colour == "black" else "black"
+
+
+    for i in range(len(array)): #drawing the rectangles themselves
+        screen.create_rectangle(i*xIncrement, int(screen['height']), (i+1)*xIncrement, int(screen['height']) - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
     
-    yIncrement = (height*0.975) / max(array)
-
-    dx = 1 if xIncrement > 1 else 0
-
-    
-    colour = "black" if screen['background'] == "white" else "white"
-    outline = "white" if colour == "black" else "black"
-
-    if changed is None or len(rects) < len(array):
-        changed = [i for i in range(len(array))]
-
-    for i in changed: #drawing the rectangles themselves
-        if i < finishedInd:
-            continue
-
-        temp = colour
-
-        if i == current:
-            colour = red
-        if i == finishedInd:
-            colour = green
-
-        if len(rects) > i:
-            screen.coords(rects[i],i*xIncrement, height, (i+dx)*xIncrement, height - array[i]*yIncrement)
-        else:
-            r = screen.create_rectangle(i*xIncrement, height, (i+dx)*xIncrement, height - array[i]*yIncrement, fill = colour, outline = outline, width = 0.1)
-            rects.append(r)
-
-        screen.itemconfig(rects[i],fill = colour)
-        if xIncrement > 2:
-            screen.itemconfig(rects[i],outline = outline)
-        else:
-            screen.itemconfig(rects[i],outline = colour)
-        colour = temp
-    
-    global prev
-    if prev != current and not prev is None:
-        screen.itemconfig(rects[prev],fill = colour)
-        if xIncrement > 2:
-            screen.itemconfig(rects[prev],outline = outline)
-        else:
-            screen.itemconfig(rects[prev],outline = colour)
     screen.update()
 
-    prev = current
-
-    if not time is None:
+    #determine sleep time
+    if len(array) <= 100 and not decrease_time:
         sleep(time)
-    
-    if finished:
-        for i in range(len(array)):
-            draw_graph(screen, array,finishedInd=i, changed=[i])
 
+    elif len(array) <= 100 and decrease_time:
+        __main__.counter += 1
+        if __main__.counter % decrease == 0:
+            sleep(time)
+
+    elif decrease_time:
+        __main__.counter += 1
+        if __main__.counter % decrease == 0:
+            if time != 0.05: sleep(time)
+            else: sleep(0.001)
+
+    elif not decrease_time:
+        sleep(time)
