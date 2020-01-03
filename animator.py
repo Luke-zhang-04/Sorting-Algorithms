@@ -3,6 +3,9 @@ from random import randint
 
 rects = {}
 
+red = "#E74C3C"
+green = "#0FC818"
+
 def draw_graph(screen, array, finishedInd = -1, time = None, current = None, finished = False):
     height = screen.winfo_height()
     width = screen.winfo_width()
@@ -11,23 +14,21 @@ def draw_graph(screen, array, finishedInd = -1, time = None, current = None, fin
     yIncrement = (height*0.975) / max(array)
     xIncrement = width / len(array)
 
-    red = "#E74C3C"
-
-    # if finished:
-    #     colour = "#0FC818" 
-    #     outline = "black"
-    # else:
+    
     colour = "black" if screen['background'] == "white" else "white"
     outline = "white" if colour == "black" else "black"
 
     for i in range(len(array)): #drawing the rectangles themselves
         if i < finishedInd:
             continue
+
         temp = colour
+
         if i == current:
             colour = red
         if i == finishedInd:
-            colour = "#0FC818"
+            colour = green
+        
         val = array[i]
         if val in rects:
             screen.coords(rects[val],i*xIncrement, height, (i+1)*xIncrement, height - array[i]*yIncrement)
