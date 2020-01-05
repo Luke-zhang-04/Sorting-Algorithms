@@ -114,8 +114,8 @@ func radix_sort(array []int, digit int, mode string) []int {
 		if digit >= 0 {
 			array = counting_sort(array, digit)
 			array := seperate(array, digit)
-			for i := 0; i < len(array); i++ {
-				output = append(output, radix_sort(array[i], digit-1, "msd")...)
+			for _, i := range array {
+				output = append(output, radix_sort(i, digit-1, "msd")...)
 			}
 		} else {
 			output = array
@@ -137,6 +137,7 @@ func main() {
 	fmt.Println("LSD")
 	fmt.Println(radix_sort(shuffled_array, 0, "lsd"))
 
+	fmt.Println()
 	fmt.Println("MSD")
 	fmt.Println(radix_sort(shuffled_array, len(string(max(shuffled_array))), "msd"))
 }
