@@ -82,7 +82,7 @@ func seperate(array []int, digit int) [][]int {
 	}
 	minimum, _ := strconv.Atoi(string(smallest))
 	var beg int
-	for i:= minimum+digit; i < max(array)+digit+1; i += digit {
+	for i := minimum+digit; i < max(array)+digit+1; i += digit {
 		beg = counter
 
 		for counter <= len(array) {
@@ -101,7 +101,6 @@ func seperate(array []int, digit int) [][]int {
 func radix_sort(array []int, digit int, mode string) []int {
 	if mode == "lsd" {
 		for i := 0; i < len(string(max(array)))+1; i++ {
-			fmt.Println(i)
 			array = counting_sort(array, i)
 		}
 		return array
