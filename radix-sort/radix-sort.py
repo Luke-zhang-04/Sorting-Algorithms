@@ -55,10 +55,10 @@ def radix_sort(array, **kwargs):
             array = counting_sort(array, digit)
             array = seperate(array, digit)
 
-            for i in range(len(array)):
-                output += radix_sort(array[i], msd = True, digit = digit-1)
+            for i in array:
+                output += radix_sort(i, msd = True, digit = digit-1)
         else: output = array
-        
+
         return output
     
     else:
@@ -72,13 +72,12 @@ if __name__ == "__main__":
     from shuffler import random_sequence
 
     print("RADIX SORT")
-
     shuffled_array = random_sequence(0, 1000)
 
     print(shuffled_array, "\n")
 
     print("LSD")
-    print(radix_sort(shuffled_array, lsd = True))
+    print(radix_sort(shuffled_array, lsd = True), "\n")
     
     print("MSD")
     print(radix_sort(shuffled_array, msd = True, digit = None))
