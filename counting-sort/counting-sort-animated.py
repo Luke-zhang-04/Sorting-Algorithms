@@ -12,18 +12,18 @@ myInterface = Tk()
 screen = Canvas(myInterface, width=1000, height=800, background = "black")
 screen.pack()
 
-def counting_sort(array): #BUBBLE SORT
-    count = [0 for _ in range(max(array)+1)]
+def counting_sort(array):
+    count = [0 for _ in range(max(array)+1)] #create array with zeros
 
-    for i in range(len(array)):
+    for i in range(len(array)): #iterate through given array, and add 1 to the index which is the value of array[i]
         count[array[i]] += 1
 
-    for i in range(1, len(count)):
+    for i in range(1, len(count)): #go through array and add previous index's value to the current index
         count[i] += count[i-1]
 
-    output = [None for _ in range(len(array))]
-    draw_output = [0 for _ in range(len(array))]
-    for i in array:
+    output = [None for _ in range(len(array))] #create output array with none types
+    draw_output = [0 for _ in range(len(array))] #create draw output array with zeros
+    for i in array: #iterate through array and turn none types and zeros into sorted values
         output[count[i]-1] = i
         draw_output[count[i]-1] = i
         count[i] -= 1

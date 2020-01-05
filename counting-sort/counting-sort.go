@@ -18,7 +18,7 @@ func random_sequence(minimum, maximum int) []int { //returns a shuffled array
 	return array
 }
 
-func max(array []int) int {
+func max(array []int) int { //gets largest number in array
 	largest := array[0]
 	for _, i := range array {
 		if i > largest {
@@ -29,18 +29,18 @@ func max(array []int) int {
 }
 
 func counting_sort(array []int) []int {
-	count := make([]int, max(array)+1)
+	count := make([]int, max(array)+1) 
 
-	for i := 0; i < len(array); i++ {
+	for i := 0; i < len(array); i++ { //iterate through given array, and add 1 to the index which is the value of array[i]
 		count[array[i]]++
 	}
 
-	for i := 1; i < len(count); i++ {
+	for i := 1; i < len(count); i++ { //go through array and add previous index's value to the current index
 		count[i] += count[i-1]
 	}
 
-	output := make([]int, len(array))
-	for _, i := range array {
+	output := make([]int, len(array)) //create output array
+	for _, i := range array { //iterate through array and plug in sorted values
 		output[count[i]-1] = i
         count[i]--
 	}
