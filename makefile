@@ -1,5 +1,5 @@
 run bubble_sort_go:
-	go run bubble-sort/bubble-sort.go
+	go run bubble-Sort/main.go bubble-Sort/bubble-sort.go bubble-Sort/bubble-sort-animated.go
 
 build bubble_sort_go:
 	go build -o bubble-sortbin bubble-sort/bubble-sort.go
