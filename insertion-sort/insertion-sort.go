@@ -26,7 +26,7 @@ func insertion_sort(array []int) []int {
 			array[section+1] = array[section] //if comparator <= array[section], move array[section] forward to make space
 			section --
 		}
-	array[section+1] = comparator //insert comparator into the array, in its correct position
+		array[section+1] = comparator //insert comparator into the array, in its correct position
 	}
 	return array
 }

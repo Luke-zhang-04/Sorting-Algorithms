@@ -18,7 +18,7 @@ func random_sequence(minimum, maximum int) []int { //returns a shuffled array
 	return array
 }
 
-func cocktail_shaker_sort(array []int) []int {
+func gnome_sort(array []int) []int {
 	i := 0
 	for i < len(array) { //iterate until end of array
 		if i == 0 || array[i] > array[i-1] { //move "gnome" forward if "pots" in  correct order
@@ -34,8 +34,8 @@ func cocktail_shaker_sort(array []int) []int {
 
 func main() {
 	shuffled_array := random_sequence(0, 1000)
-	fmt.Println("COCKTAIL SHAKER SORT")
+	fmt.Println("GNOME SORT")
 	fmt.Println(shuffled_array)
 	fmt.Println()
-	fmt.Println(cocktail_shaker_sort(shuffled_array))
+	fmt.Println(gnome_sort(shuffled_array))
 }

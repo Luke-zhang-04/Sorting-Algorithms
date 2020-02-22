@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
-	"fmt"
 )
 
 func random_sequence(minimum, maximum int) []int { //returns a shuffled array
@@ -36,7 +36,7 @@ func is_sorted(array []int) bool { //if array is sorted
 
 func bogo_sort(array []int) []int {
 	array = shuffle(array) //shuffle the array
-	if is_sorted(array) { //check if the array is sorted, otherwise recurse
+	if is_sorted(array) {  //check if the array is sorted, otherwise recurse
 		return array
 	} else {
 		return bogo_sort(array)
