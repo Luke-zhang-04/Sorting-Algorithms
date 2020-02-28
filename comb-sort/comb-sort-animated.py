@@ -34,7 +34,7 @@ def comb_sort(array):
                 draw_graph(screen, array, current = i if i % 2 == 0 else i + gap, time = 0.0005)
     return array
 
-numVals = 500
+numVals = 250
 
 shuffled_array = random_sequence(0, min(numVals, screen.winfo_width()))
 
