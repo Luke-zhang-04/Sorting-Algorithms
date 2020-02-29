@@ -9,6 +9,11 @@ def merge(array1, array2): #merge two arrays
         elif array1[first] < array2[second]:
             array.append(array1[first])
             first += 1
+        else:
+            array.append(array1[first])
+            first += 1
+            array.append(array2[second])
+            second += 1
     
     while first < len(array1):
         array.append(array1[first])
