@@ -19,7 +19,12 @@ function merge(array1, array2) {
 		} else if (array1[first] < array2[second]) {
             array.push(array1[first])
 			first++
-		}
+		} else {
+            array.push(array1[first])
+			first++
+            array.push(array2[second])
+			second++
+        }
     }
 
     while (first < array1.length) {
