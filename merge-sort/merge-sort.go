@@ -29,6 +29,11 @@ func merge(array1 []int, array2 []int) []int {
 		} else if array1[first] < array2[second] {
             array = append(array, array1[first])
 			first++
+		} else {
+			array = append(array, array1[first])
+			first++
+			array = append(array, array2[second])
+			second++
 		}
 	}
 
