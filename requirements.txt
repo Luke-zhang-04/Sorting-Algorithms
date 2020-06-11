@@ -1,0 +1,2 @@
+# CanvasPlus from https://github.com/Luke-zhang-04/CanvasPlus
+CanvasPlus>=1.4.0<1.5.0
