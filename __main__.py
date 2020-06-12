@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from bogoSort import bogoSort
 from shuffler import randomSequence
 
 import sys
@@ -6,8 +7,6 @@ import sys
 args = sys.argv[1:]
 
 for target in args:
-    exec(f"from {target} import {target}")
-
     if target == "bogoSort":
         shuffledArray = randomSequence(0, 5)
         print(shuffledArray)
