@@ -1,2 +1,2 @@
 # Shuffler function for all Python files to use
-from shuffler.shuffler import randomSequence
+from utils.shuffler import randomSequence

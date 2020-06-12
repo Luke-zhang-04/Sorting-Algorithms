@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from bogoSort import bogoSort
-from shuffler import randomSequence
+from bubbleSort import bubbleSort
+from utils import randomSequence
 
 import sys
 
@@ -12,3 +13,16 @@ for target in args:
         print(shuffledArray)
         bogoSort(shuffledArray)
         print(shuffledArray)
+
+    else:
+        shuffledArray = randomSequence(0, 1000)
+        print(shuffledArray, end="\n\n")
+
+        try:
+            exec(f"{target}(shuffledArray)")
+        except NameError:
+            print(
+                f"NameError: {target} is not a sorting algorithm. Check your casing.\n"
+            )
+        else:
+            print(shuffledArray)

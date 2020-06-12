@@ -1,4 +1,4 @@
-import randomSequence from "../shuffler"
+import randomSequence from "../utils"
 
 /**
  * Shuffles an array
@@ -37,10 +37,11 @@ const bogoSort = (array: number[]): number[] => {
 	return issorted(array) ? array : bogoSort(array)
 }
 
-
-const shuffled_array = randomSequence(0, 7) //max range
-console.log("BOGO SORT AKA STUPID SORT")
-console.log(shuffled_array)
-console.log(bogoSort(shuffled_array))
+if (require.main === module) {
+    const shuffled_array = randomSequence(0, 7) //max range
+    console.log("BOGO SORT AKA STUPID SORT")
+    console.log(shuffled_array)
+    console.log(bogoSort(shuffled_array))
+}
 
 export default bogoSort

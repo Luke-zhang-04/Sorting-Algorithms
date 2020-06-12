@@ -18,28 +18,27 @@ node . --help
 ```
 ```bash
 Options:
-  -bs, --bogoSort  Run bogosort algorithm
-  -h, --help       display help for command
+  -bogo, --bogoSort      Run bogosort algorithm
+  -bubble, --bubbleSort  Run bubblesort algorithm
+  -h, --help             display help for command
 ```
 Example:
 ```bash
-node . -bs --bubbleSort
+node . -bogo --bubbleSort
 ```
 
 ### Go ###
 ```bash
-go run <sortName>/main.go
+go run main.go <sortnames>
 ```
 ```bash
-go run bogoSort/main.go
+go run main.go bogo bubbleSort
 ```
 
 ### C++ ###
 ```bash
-g++ -o bin <sortName>/main.cpp -std=c++17
-./bin
+./cppbinary <sortnames>
 ```
 ```bash
-g++ -o bin bogoSort/main.cpp -std=c++17
-./bin
+./cppbinary bogo bubbleSort
 ```
