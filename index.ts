@@ -5,6 +5,7 @@ import randomSequence from "./utils"
 program
     .option("-bogo, --bogoSort", 'Run bogosort algorithm')
     .option("-bubble, --bubbleSort", 'Run bubblesort algorithm')
+    .option("-cocktail, --cocktailShakerSort", 'Run bubblesort algorithm')
 
 program.parse(process.argv)
 

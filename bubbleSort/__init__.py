@@ -1,1 +1,1 @@
-from bubbleSort.bubblesort import bubbleSort
+from bubbleSort.main import bubbleSort
