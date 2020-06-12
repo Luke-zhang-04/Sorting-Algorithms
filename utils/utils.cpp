@@ -1,4 +1,4 @@
-#include <ostream>
+#include <iostream>
 #include <vector>
 #include <random>
 
@@ -24,7 +24,7 @@ std::vector<int> randomSequenceUtil(int minimum, int maximum) {
  * @param array - pointer to desired array
  * @returns void
  */
-void printArrayUtil(std::vector<int> &array) {
+void printArrayUtil(const std::vector<int> &array) {
     std::cout << "[";
     for (unsigned int i = 0; i < array.size()-1; i++) {
         std::cout << std::to_string(array[i]) << ", ";

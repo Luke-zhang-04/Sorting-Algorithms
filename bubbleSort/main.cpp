@@ -1,11 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-
-#include "../utils/utils.h"
-
-using std::cout;
-using std::endl;
 
 /**
  * Main bubblesort algorithm
@@ -29,16 +23,4 @@ void bubbleSort(std::vector<int> &array) {
         }
     }
 
-}
-
-int main() {
-    cout << "BUBBLE SORT" << endl;
-    std::vector<int> shuffledArray = randomSequenceUtil(0, 1000);
-
-    printArrayUtil(shuffledArray);
-    cout << endl;
-
-    bubbleSort(shuffledArray);
-    printArrayUtil(shuffledArray);
-    return 0;
 }

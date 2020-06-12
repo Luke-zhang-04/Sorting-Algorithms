@@ -1,17 +1,18 @@
+#include <ostream>
 #include <vector>
 #include "./utils.cpp"
 
-#ifndef randomSequence
-#define randomSequence
+#ifndef RANDOMSEQUENCEUTIL
+#define RANDOMSEQUENCEUTIL
 
-std::vector<int> randomUtil(int minimum, int maximum);
+std::vector<int> randomSequenceUtil(int minimum, int maximum);
 
 #endif
 
 
-#ifndef printArray
-#define printArray
+#ifndef PRINTARRAYUTIL
+#define PRINTARRAYUTIL
 
-void prUtil(std::vector<int> &array);
+void printArrayUtil(const std::vector<int> &array);
 
 #endif
