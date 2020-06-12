@@ -23,32 +23,45 @@ void printArray(std::vector<int> &array) {
     std::cout << std::to_string(array[array.size()-1]) << "]" << std::endl;
 }
 
-bool is_sorted(std::vector<int> &array) {
-    for (unsigned int i = 0; i < array.size()-1; i++) {
-        if (array[i+1] < array[i]) {
-            return false;
+int min(std::vector<int> &array) {
+    int minimum = array[0];
+    for (const int &i : array) {
+        if (i < minimum) {
+            minimum = i;
         }
     }
-    return true;
+    return minimum;
 }
 
-std::vector<int> bogo_sort(std::vector<int> &array) {
-    std::shuffle(std::begin(array), std::end(array), std::default_random_engine());
-    if (is_sorted(array)) {
-        return array;
-    } else {
-        return bogo_sort(array);
+int indexOf(std::vector<int> &array, int search) {
+    for (unsigned int i = 0; i < array.size(); i++) {
+        if (array[i] == search) {
+            return i;
+        }
     }
+    return -1;
+}
+
+std::vector<int> selection_sort(std::vector<int> &array) {
+    int ind;
+    std::vector<int> slice;
+
+    for (unsigned int i = 0; i < array.size(); i++) {
+        slice = std::vector<int>(array.begin() + i, array.begin() + array.size());
+        ind = indexOf(array, min(slice));
+		std::swap(array[ind], array[i]);
+    }
+    return array;
 }
 
 int main() {
-    cout << "BOGO SORT AKA STUPID SORT" << endl;
-    std::vector<int> shuffled_array = random_sequence(0, 10);
+    cout << "SELECTION SORT" << endl;
+    std::vector<int> shuffled_array = random_sequence(0, 1000);
 
     printArray(shuffled_array);
     cout << endl;
 
-    std::vector<int> sorted_array = bogo_sort(shuffled_array);
+    std::vector<int> sorted_array = selection_sort(shuffled_array);
     printArray(sorted_array);
     return 0;
 }
