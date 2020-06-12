@@ -18,12 +18,13 @@ node . --help
 ```
 ```bash
 Options:
-  -bs, --bogoSort  Run bogosort algorithm
-  -h, --help       display help for command
+  -bogo, --bogoSort      Run bogosort algorithm
+  -bubble, --bubbleSort  Run bubblesort algorithm
+  -h, --help             display help for command
 ```
 Example:
 ```bash
-node . -bs --bubbleSort
+node . -bogo --bubbleSort
 ```
 
 ### Go ###
