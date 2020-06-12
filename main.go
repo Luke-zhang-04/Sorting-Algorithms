@@ -27,6 +27,9 @@ func main() {
 		} else if arg == "bubbleSort" || arg == "bubble" {
 			print("BUBBLE SORT")
 			sort = sorts.BubbleSort
+		} else if arg == "cocktailShakerSort" || arg == "cocktail" {
+			print("COCKTAIL SHAKER SORT")
+			sort = sorts.CocktailShakerSort
 		}
 
 		shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high

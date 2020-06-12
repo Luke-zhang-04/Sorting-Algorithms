@@ -19,7 +19,7 @@ if __name__ == "__main__":
     try:
         from utils import randomSequence
     except ModuleNotFoundError:
-        import os, sys  # import shuffler from parent directory
+        import os, sys  # Import shuffler from parent directory
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))

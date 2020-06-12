@@ -1,1 +1,1 @@
-from bogoSort.bogosort import bogoSort
+from bogoSort.main import bogoSort
