@@ -4,21 +4,9 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+
+	utils "../utilsGo"
 )
-
-// Generated a random sequence of numbers between minimum and maximum
-func randomSequence(minimum, maximum int) []int { // Returns a shuffled array
-	array := make([]int, 0)
-
-	for i := minimum; i < maximum; i++ { // Create array and append numbers to it
-		array = append(array, i)
-	}
-
-	rand.Seed(time.Now().UnixNano())
-	rand.Shuffle(len(array), func(i, j int) { array[i], array[j] = array[j], array[i] }) // Shuffle the array
-
-	return array
-}
 
 // Shuffles an array randomly
 func shuffle(array []int) []int {
@@ -51,7 +39,7 @@ func bogoSort(array []int) []int {
 }
 
 func main() {
-	shuffledArray := randomSequence(0, 10) // Don't set this value too high
+	shuffledArray := utils.RandomSequence(0, 5) // Don't set this value too high
 	fmt.Println("BOGO SORT AKA STUPID SORT")
 	fmt.Println(shuffledArray)
 	fmt.Println()

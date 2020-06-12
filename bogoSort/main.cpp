@@ -1,42 +1,12 @@
-
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <random>
 
+#include "../utils/utils.h"
+
 using std::cout;
 using std::endl;
-
-/**
- * Generates random vector from minimum to maximum
- * @param minmum - minimum value
- * @param maximum - maximum value
- * @returns vector of ints with random numbers
- */
-std::vector<int> randomSequence(int minimum, int maximum) {
-    std::vector<int> array;
-
-    for (int i = minimum; i < maximum; i++) { //create array and append numbers to it
-        array.push_back(i);
-    }
-    std::shuffle(std::begin(array), std::end(array), std::default_random_engine()); //shuffle the array
-
-    return array;
-}
-
-/**
- * Outputs an array to stdout
- * @param array - pointer to desired array
- * @returns void
- */
-void printArray(std::vector<int> &array) {
-    std::cout << "[";
-    for (unsigned int i = 0; i < array.size()-1; i++) {
-        std::cout << std::to_string(array[i]) << ", ";
-    }
-    std::cout << std::to_string(array[array.size()-1]) << "]" << std::endl;
-}
 
 /**
  * Check if array is sorted
@@ -66,12 +36,12 @@ std::vector<int> bogoSort(std::vector<int> &array) {
 
 int main() {
     cout << "BOGO SORT AKA STUPID SORT" << endl;
-    std::vector<int> shuffled_array = randomSequence(0, 10);
+    std::vector<int> shuffled_array = randomSequenceUtil(0, 10);
 
-    printArray(shuffled_array);
+    printArrayUtil(shuffled_array);
     cout << endl;
 
     std::vector<int> sorted_array = !issorted(shuffled_array) ? bogoSort(shuffled_array) : shuffled_array;
-    printArray(sorted_array);
+    printArrayUtil(sorted_array);
     return 0;
 }

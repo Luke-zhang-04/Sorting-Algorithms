@@ -1,4 +1,4 @@
-import randomSequence from "../shuffler"
+import randomSequence from "../utils"
 
 /**
  * Shuffles an array
