@@ -1,13 +1,7 @@
-package main
+package sorts
 
-import (
-	"fmt"
-
-	utils "../utilsGo"
-)
-
-// Main bubblesort function
-func bubbleSort(array []int) {
+// BubbleSort main bubblesort function
+func BubbleSort(array []int) {
 	var swaps int //number of swaps
 
 	for amt := 0; amt < len(array); amt++ {
@@ -24,13 +18,4 @@ func bubbleSort(array []int) {
 			break
 		}
 	}
-}
-
-func main() {
-	shuffledArray := utils.RandomSequence(0, 1000)
-	fmt.Println("BUBBLE SORT")
-	fmt.Println(shuffledArray)
-	fmt.Println()
-	bubbleSort(shuffledArray)
-	fmt.Println(shuffledArray)
 }

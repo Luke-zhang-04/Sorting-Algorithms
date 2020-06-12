@@ -1,11 +1,8 @@
-package main
+package sorts
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
-
-	utils "../utilsGo"
 )
 
 // Shuffles an array randomly
@@ -28,20 +25,13 @@ func issorted(array []int) bool {
 	return true
 }
 
-func bogoSort(array []int) []int {
+// BogoSort sorts array with high efficiency
+func BogoSort(array []int) []int {
 	array = shuffle(array) // Shuffle the array
 
 	if issorted(array) {
 		return array
 	}
 
-	return bogoSort(array)
-}
-
-func main() {
-	shuffledArray := utils.RandomSequence(0, 5) // Don't set this value too high
-	fmt.Println("BOGO SORT AKA STUPID SORT")
-	fmt.Println(shuffledArray)
-	fmt.Println()
-	fmt.Println(bogoSort(shuffledArray))
+	return BogoSort(array)
 }
