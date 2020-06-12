@@ -28,17 +28,42 @@ node . -bogo --bubbleSort
 ```
 
 ### Go ###
+#### Run directly
 ```bash
 go run main.go <sortnames>
 ```
 ```bash
 go run main.go bogo bubbleSort
 ```
+#### Compile first ####
+##### Build/compile #####
+```bash
+go build main.go
+```
+##### Run/execute #####
+```bash
+./main <sortnames>
+```
+E.g
+```bash
+go build main.go
+./main bogo bubbleSort
+```
 
 ### C++ ###
+#### Build/compile ####
 ```bash
-./cppbinary <sortnames>
+g++ -o <executableName> main.cpp -std=c++17
+```
+#### Run/execute ####
+```bash
+./<executableName> <sortnames>
 ```
 ```bash
-./cppbinary bogo bubbleSort
+./<executableName> bogo bubbleSort
+```
+E.g
+```bash
+g++ -o binmain.cpp -std=c++17
+./bin bogo bubbleSort
 ```
