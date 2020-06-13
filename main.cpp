@@ -4,6 +4,7 @@
 #include "./bogoSort/main.h"
 #include "./bubbleSort/main.h"
 #include "./cocktailShakerSort/main.h"
+#include "./combSort/main.h"
 
 #include "./utils/utils.h"
 
@@ -29,16 +30,24 @@ int main(int argc, char* argv[]) {
             }
 
             continue;
+
         } else if (arg == "bubbleSort" || arg == "bubble") {
             cout << "BUBBLE SORT" << endl;
             printArrayUtil(shuffledArray);
             cout << endl;
             bubbleSort(shuffledArray);
+
         } else if (arg == "cocktailShakerSort" || arg == "cocktail") {
             cout << "COCKTAIL SHAKER SORT" << endl;
             printArrayUtil(shuffledArray);
             cout << endl;
             cocktailShakerSort(shuffledArray);
+
+        } else if (arg == "combSort" || arg == "comb") {
+            cout << "COMBSORT" << endl;
+            printArrayUtil(shuffledArray);
+            cout << endl;
+            combSort(shuffledArray);
         }
 
         printArrayUtil(shuffledArray);

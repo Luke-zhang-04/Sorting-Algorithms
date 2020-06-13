@@ -3,9 +3,10 @@ import program from "commander"
 import randomSequence from "./utils"
 
 program
-    .option("-bogo, --bogoSort", 'Run bogosort algorithm')
-    .option("-bubble, --bubbleSort", 'Run bubblesort algorithm')
-    .option("-cocktail, --cocktailShakerSort", 'Run bubblesort algorithm')
+    .option("-bogo, --bogoSort", 'Run bogo sort algorithm')
+    .option("-bubble, --bubbleSort", 'Run bubble sort algorithm')
+    .option("-cocktail, --cocktailShakerSort", 'Run cocktail shaker sort algorithm')
+    .option("-comb, --combSort", 'Run comb sort algorithm')
 
 program.parse(process.argv)
 

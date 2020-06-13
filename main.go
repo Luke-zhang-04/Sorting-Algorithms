@@ -30,6 +30,9 @@ func main() {
 		} else if arg == "cocktailShakerSort" || arg == "cocktail" {
 			print("COCKTAIL SHAKER SORT")
 			sort = sorts.CocktailShakerSort
+		} else if arg == "combSort" || arg == "comb" {
+			print("COMBSORT")
+			sort = sorts.CombSort
 		}
 
 		shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high

@@ -2,6 +2,7 @@
 from bogoSort import bogoSort
 from bubbleSort import bubbleSort
 from cocktailShakerSort import cocktailShakerSort
+from combSort import combSort
 from utils import randomSequence
 
 import sys
@@ -13,13 +14,6 @@ for target in args:
         shuffledArray = randomSequence(0, 5)
         print(shuffledArray, end="\n\n")
         bogoSort(shuffledArray)
-        print(shuffledArray, end="\n\n")
-        continue
-    
-    elif target in ["cocktailShakerSort", "cocktail"]:
-        shuffledArray = randomSequence(0, 1000)
-        print(shuffledArray, end="\n\n")
-        cocktailShakerSort(shuffledArray)
         print(shuffledArray, end="\n\n")
         continue
 
