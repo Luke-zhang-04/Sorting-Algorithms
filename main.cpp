@@ -10,6 +10,7 @@
 #include "./gnomeSort/main.h"
 #include "./insertionSort/main.h"
 #include "./mergeSort/main.h"
+#include "./mergeSortInPlace/main.h"
 
 #include "./utils/utils.h"
 
@@ -29,6 +30,7 @@ int main(int argc, char* argv[]) {
         {"gnomeSort", 6}, {"gnome", 6},
         {"insertionSort", 7}, {"insertion", 7}, {"insert", 7},
         {"mergeSort", 8}, {"merge", 8},
+        {"mergeSortInPlace", 9}, {"mergeSortIP", 9}, {"mergeIP", 9}, {"IPMergeSort", 9}, {"IPMerge", 9},
     };
 
     for (int i = 1; i < argc; i++) {
@@ -89,7 +91,14 @@ int main(int argc, char* argv[]) {
             std::vector<int> sortedArray = mergeSort(shuffledArray);
             printArrayUtil(sortedArray);
             continue;
-        }
+
+        } case 9:
+            cout << "IN PLACE MERGE SORT" << endl;
+            printArrayUtil(shuffledArray);
+            cout << endl;
+            mergeSort(shuffledArray, 0, shuffledArray.size() - 1);
+            printArrayUtil(shuffledArray);
+            continue;
         
         default:
             cout << arg << " is not a sorting algorithm. Check your casing." << endl;
