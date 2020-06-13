@@ -1,12 +1,7 @@
-#include <iostream>
+#ifndef COUNTSORT_H
+#define COUNTSORT_H
 #include <vector>
 
-#include "./main.cpp"
+void countingSort(std::vector<int> &array);
 
-#ifndef COUNTINGSORT
-#define COUNTINGSORT
-
-template <typename T>
-std::vector<int> countingSort(T);
-
-#endif
+#endif //COUNTSORT_H

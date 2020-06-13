@@ -1,11 +1,7 @@
-#include <ostream>
+#ifndef MAX_H
+#define MAX_H
 #include <vector>
-#include "./max.cpp"
 
-#ifndef MAX
-#define MAX
+int max(std::vector<int> &array);
 
-template <typename T>
-inline std::vector<int> static max(T);
-
-#endif
+#endif //MAX_H

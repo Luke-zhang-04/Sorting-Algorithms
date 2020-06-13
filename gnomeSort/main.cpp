@@ -1,8 +1,6 @@
 #include <vector>
-
-#ifndef MAX
+#include "main.h"
 #include "../utils/max.h"
-#endif
 
 /**
  * Main gnomesort function

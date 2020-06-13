@@ -1,11 +1,7 @@
-#include <ostream>
+#ifndef GNOMESORT_H
+#define GNOMESORT_H
 #include <vector>
-#include "./main.cpp"
 
-#ifndef GNOMESORT
-#define GNOMESORT
+void gnomeSort(std::vector<int> &array);
 
-template <typename T>
-void gnomeSort(T);
-
-#endif
+#endif //GNOMESORT_H

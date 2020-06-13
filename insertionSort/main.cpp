@@ -1,5 +1,7 @@
 #include <vector>
 
+#include "main.h"
+
 /**
  * Main insertionsort algorithm
  * @param array - array to sort

@@ -1,17 +1,20 @@
-#include <ostream>
+#include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <array>
+#include <functional>
 
-#include "./bogoSort/main.h"
-#include "./bubbleSort/main.h"
-#include "./cocktailShakerSort/main.h"
-#include "./combSort/main.h"
-#include "./countingSort/main.h"
-#include "./gnomeSort/main.h"
-#include "./insertionSort/main.h"
+#include "bogoSort/main.h"
+#include "bubbleSort/main.h"
+#include "cocktailShakerSort/main.h"
+#include "combSort/main.h"
+#include "countingSort/main.h"
+#include "gnomeSort/main.h"
+#include "insertionSort/main.h"
 
-#include "./utils/utils.h"
+#include "utils/utils.h"
 
+#define NUM_ALGOS 7
 
 using std::cout;
 using std::endl;
@@ -19,84 +22,53 @@ using std::string;
 
 int main(int argc, char* argv[]) {
 
-    const static std::unordered_map<std::string, int> stringCase {
+    std::unordered_map<string, int> argMap {
         {"bogoSort", 1}, {"bogo", 1},
         {"bubbleSort", 2}, {"bubble", 2},
         {"cocktailShakerSort", 3}, {"cocktailShaker", 3}, {"cocktail", 3},
         {"combSort", 4}, {"comb", 4},
         {"countingSort", 5}, {"counting", 5}, {"count", 5},
         {"gnomeSort", 6}, {"gnome", 6},
-        {"insertionSort", 6}, {"insertion", 6}, {"insert", 6},
+        {"insertionSort", 7}, {"insertion", 7}, {"insert", 7},
+    };
+
+    std::array<string, NUM_ALGOS+1> algoMessages = {
+        "",
+        "BOGO SORT AKA STUPID SORT",
+        "BUBBLE SORT",
+        "COCKTAIL SHAKER SORT",
+        "COMBSORT",
+        "COUNTING SORT",
+        "GNOME SORT",
+        "INSERTION SORT"
+    };
+
+    std::array< std::function<void(std::vector<int>&)>, NUM_ALGOS+1> algos = {
+        [](std::vector<int>& _){}, //Empty lambda that takes in vector reference
+        bogoSort,
+        bubbleSort,
+        cocktailShakerSort,
+        combSort,
+        countingSort,
+        gnomeSort,
+        insertionSort
     };
 
     for (int i = 1; i < argc; i++) {
-        string arg = string(argv[i]);
-        std::vector<int> shuffledArray = randomSequenceUtil(0, 1000);
+        const int algoNum = argMap[string(argv[i])];
 
-        switch (stringCase.count(arg) ? stringCase.at(arg) : 0) {
-        case 1:
-            cout << "BOGO SORT AKA STUPID SORT" << endl;
-            shuffledArray = randomSequenceUtil(0, 10);
-            printArrayUtil(shuffledArray);
-            cout << endl;
+        int arrSize = 1000;
+        if (algoNum == 1) arrSize = 10;
+        std::vector<int> shuffledArray = util::randomSequence(0, arrSize);
 
-            if (!issorted(shuffledArray)) {
-                printArrayUtil(bogoSort(shuffledArray));
-            }
+        cout << algoMessages[algoNum] << endl;
 
-            continue;
-        
-        case 2:
-            cout << "BUBBLE SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            bubbleSort(shuffledArray);
-            break;
-        
-        case 3:
-            cout << "COCKTAIL SHAKER SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            cocktailShakerSort(shuffledArray);
-            break;
+        util::printArray(shuffledArray);
+        algos[algoNum](shuffledArray);
+        util::printArray(shuffledArray);
 
-        case 4:
-            cout << "COMBSORT" << endl;
-            printArrayUtil(shuffledArray);
+        if(i+1 < argc)
             cout << endl;
-            combSort(shuffledArray);
-            break;
-        
-        case 5: {
-            cout << "COUNTING SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            std::vector<int> sortedArray = countingSort(shuffledArray);
-            printArrayUtil(sortedArray);
-            continue;
-
-        } case 6:
-            cout << "GNOME SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            gnomeSort(shuffledArray);
-            printArrayUtil(shuffledArray);
-            continue;
-        
-        case 7:
-            cout << "INSERTION SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            insertionSort(shuffledArray);
-            printArrayUtil(shuffledArray);
-            continue;
-        
-        default:
-            cout << arg << " is not a sorting algorithm. Check your casing." << endl;
-            continue;
-        }
-
-        printArrayUtil(shuffledArray);
     }
 
     return 0;
