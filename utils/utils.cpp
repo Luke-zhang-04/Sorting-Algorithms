@@ -1,7 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <chrono>
 
+#include "utils.h"
+
+using std::chrono::high_resolution_clock;
+using std::chrono::time_point_cast;
 
 namespace util{
     /**
@@ -16,8 +21,7 @@ namespace util{
         for (int i = minimum; i < maximum; i++) { //create array and append numbers to it
             array.push_back(i);
         }
-        std::shuffle(std::begin(array), std::end(array), std::default_random_engine()); //shuffle the array
-
+        shuffle(array);
         return array;
     }
 
@@ -32,6 +36,12 @@ namespace util{
             std::cout << std::to_string(array[i]) << ", ";
         }
         std::cout << std::to_string(array[array.size()-1]) << "]" << std::endl;
+    }
+
+    void shuffle(std::vector<int>& array){
+        auto now = high_resolution_clock::now();
+        unsigned time = now.time_since_epoch().count();
+        std::shuffle(std::begin(array), std::end(array), std::default_random_engine(time));
     }
 
 }//namespace util
