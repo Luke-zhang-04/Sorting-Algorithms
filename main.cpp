@@ -7,6 +7,7 @@
 #include "./cocktailShakerSort/main.h"
 #include "./combSort/main.h"
 #include "./countingSort/main.h"
+#include "./gnomeSort/main.h"
 
 #include "./utils/utils.h"
 
@@ -23,6 +24,7 @@ int main(int argc, char* argv[]) {
         {"cocktailShakerSort", 3}, {"cocktailShaker", 3}, {"cocktail", 3},
         {"combSort", 4}, {"comb", 4},
         {"countingSort", 5}, {"counting", 5}, {"count", 5},
+        {"gnomeSort", 6}, {"gnome", 6},
     };
 
     for (int i = 1; i < argc; i++) {
@@ -71,7 +73,15 @@ int main(int argc, char* argv[]) {
             printArrayUtil(sortedArray);
             continue;
 
-        } default:
+        } case 6:
+            cout << "GNOME SORT" << endl;
+            printArrayUtil(shuffledArray);
+            cout << endl;
+            gnomeSort(shuffledArray);
+            printArrayUtil(shuffledArray);
+            continue;
+        
+        default:
             cout << arg << " is not a sorting algorithm. Check your casing." << endl;
             continue;
         }

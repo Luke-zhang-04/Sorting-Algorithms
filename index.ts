@@ -7,6 +7,7 @@ program
     .option("-bubble, --bubbleSort", 'Run bubble sort algorithm')
     .option("-cocktail, --cocktailShakerSort", 'Run cocktail shaker sort algorithm')
     .option("-comb, --combSort", 'Run comb sort algorithm')
+    .option("-gnome, --gnomeSort", 'Run gnome sort algorithm')
 
 program.parse(process.argv)
 
