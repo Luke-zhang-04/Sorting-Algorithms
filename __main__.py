@@ -3,6 +3,7 @@ from bogoSort import bogoSort
 from bubbleSort import bubbleSort
 from cocktailShakerSort import cocktailShakerSort
 from combSort import combSort
+from gnomeSort import gnomeSort
 from utils import randomSequence
 
 import sys

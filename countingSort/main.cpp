@@ -1,19 +1,8 @@
 #include <vector>
 
-/**
- * Gets largest number in array
- * @param array - array to look into
- * @returns largest number in array
- */
-int max(std::vector<int> &array) {
-    int largest = array[0];
-    for (const int &i : array) {
-        if (i > largest) {
-            largest = i;
-        }
-    }
-    return largest;
-}
+#ifndef MAX
+#include "../utils/max.h"
+#endif
 
 /**
  * Main countingsort function

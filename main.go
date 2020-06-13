@@ -49,6 +49,11 @@ func main() {
 			print(sortedArray)
 			continue
 
+		case "gnomeSort", "gnome":
+			print("GNOME SORT")
+			sort = sorts.GnomeSort
+			break
+
 		default:
 			print(fmt.Sprintf("NameError: %s is not a sorting algorithm. Check your casing.\n", arg))
 			continue
