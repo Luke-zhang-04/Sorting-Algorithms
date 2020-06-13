@@ -1,8 +1,6 @@
 #include <vector>
 
-#ifndef MAX
 #include "../utils/max.h"
-#endif
 
 /**
  * Main countingsort function

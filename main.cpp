@@ -9,6 +9,7 @@
 #include "./countingSort/main.h"
 #include "./gnomeSort/main.h"
 #include "./insertionSort/main.h"
+#include "./mergeSort/main.h"
 
 #include "./utils/utils.h"
 
@@ -26,7 +27,8 @@ int main(int argc, char* argv[]) {
         {"combSort", 4}, {"comb", 4},
         {"countingSort", 5}, {"counting", 5}, {"count", 5},
         {"gnomeSort", 6}, {"gnome", 6},
-        {"insertionSort", 6}, {"insertion", 6}, {"insert", 6},
+        {"insertionSort", 7}, {"insertion", 7}, {"insert", 7},
+        {"mergeSort", 8}, {"merge", 8},
     };
 
     for (int i = 1; i < argc; i++) {
@@ -90,6 +92,15 @@ int main(int argc, char* argv[]) {
             insertionSort(shuffledArray);
             printArrayUtil(shuffledArray);
             continue;
+        
+        case 8: {
+            cout << "MERGE SORT" << endl;
+            printArrayUtil(shuffledArray);
+            cout << endl;
+            std::vector<int> sortedArray = mergeSort(shuffledArray);
+            printArrayUtil(sortedArray);
+            continue;
+        }
         
         default:
             cout << arg << " is not a sorting algorithm. Check your casing." << endl;
