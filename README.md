@@ -22,6 +22,9 @@ Options:
   -bubble, --bubbleSort            Run bubble sort algorithm
   -cocktail, --cocktailShakerSort  Run cocktail shaker sort algorithm
   -comb, --combSort                Run comb sort algorithm
+  -counting, --countingSort        Run counting sort algorithm
+  -gnome, --gnomeSort              Run gnome sort algorithm
+  -insertion, --insertionSort      Run insertion sort algorithm
   -h, --help                       display help for command
 ```
 Example:
