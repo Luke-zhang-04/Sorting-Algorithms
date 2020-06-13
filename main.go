@@ -40,7 +40,7 @@ func main() {
 			sort = sorts.CombSort
 			break
 
-		case "countingSort", "count":
+		case "countingSort", "counting", "count":
 			print("COUNTING SORT")
 			shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high
 			print(shuffledArray)
@@ -52,6 +52,11 @@ func main() {
 		case "gnomeSort", "gnome":
 			print("GNOME SORT")
 			sort = sorts.GnomeSort
+			break
+
+		case "insertionSort", "insertion", "insert":
+			print("INSERTION SORT")
+			sort = sorts.InsertionSort
 			break
 
 		default:

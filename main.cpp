@@ -8,6 +8,7 @@
 #include "./combSort/main.h"
 #include "./countingSort/main.h"
 #include "./gnomeSort/main.h"
+#include "./insertionSort/main.h"
 
 #include "./utils/utils.h"
 
@@ -25,6 +26,7 @@ int main(int argc, char* argv[]) {
         {"combSort", 4}, {"comb", 4},
         {"countingSort", 5}, {"counting", 5}, {"count", 5},
         {"gnomeSort", 6}, {"gnome", 6},
+        {"insertionSort", 6}, {"insertion", 6}, {"insert", 6},
     };
 
     for (int i = 1; i < argc; i++) {
@@ -78,6 +80,14 @@ int main(int argc, char* argv[]) {
             printArrayUtil(shuffledArray);
             cout << endl;
             gnomeSort(shuffledArray);
+            printArrayUtil(shuffledArray);
+            continue;
+        
+        case 7:
+            cout << "INSERTION SORT" << endl;
+            printArrayUtil(shuffledArray);
+            cout << endl;
+            insertionSort(shuffledArray);
             printArrayUtil(shuffledArray);
             continue;
         

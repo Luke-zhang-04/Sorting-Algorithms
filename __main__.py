@@ -4,6 +4,8 @@ from bubbleSort import bubbleSort
 from cocktailShakerSort import cocktailShakerSort
 from combSort import combSort
 from gnomeSort import gnomeSort
+from insertionSort import insertionSort
+
 from utils import randomSequence
 
 import sys
