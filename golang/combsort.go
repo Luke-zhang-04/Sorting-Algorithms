@@ -2,7 +2,7 @@ package sorts
 
 // Finds the next gap to increment by
 func nextGap(gap int) int {
-	var newGap int = int(gap * 10) / 13
+	var newGap int = int(gap*10) / 13
 
 	if newGap < 1 {
 		newGap = 1

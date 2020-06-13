@@ -24,7 +24,7 @@ func RandomSequence(minimum, maximum int) []int { // Returns a shuffled array
 // Includes if array includes
 func Includes(array []int, target int) bool {
 	for _, val := range array {
-		if (val == target) {
+		if val == target {
 			return true
 		}
 	}
