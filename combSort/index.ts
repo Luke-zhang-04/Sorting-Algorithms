@@ -39,11 +39,11 @@ const combSort = (array: number[]): void => {
 }
 
 if (require.main === module) {
-    let shuffled_array = randomSequence(0, 1000)
+    let shuffledArray = randomSequence(0, 1000)
     console.log("COMB SORT")
-    console.log(shuffled_array, "\n")
-    combSort(shuffled_array)
-    console.log(shuffled_array)
+    console.log(shuffledArray, "\n")
+    combSort(shuffledArray)
+    console.log(shuffledArray)
 }
 
 export default combSort

@@ -21,18 +21,18 @@ def combSort(array):
 
 if __name__ == "__main__":
     try:
-        from shuffler import randomSequence
+        from utils import randomSequence
     except ModuleNotFoundError:
         import os, sys  # Import shuffler from parent directory
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
         sys.path.insert(0, parent_dir_path)
-        from shuffler import random_Sequence
+        from utils import randomSequence
 
     print("COMB SORT")
 
-    shuffledArray = random_Sequence(0, 1000)
+    shuffledArray = randomSequence(0, 1000)
 
     print(shuffledArray, "\n")
 

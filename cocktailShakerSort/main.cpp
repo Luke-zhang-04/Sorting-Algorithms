@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 /**
  * Main cocktail shaker sort function

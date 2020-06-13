@@ -1,4 +1,4 @@
-# if shuffled_array = random_sequence(0, x <= 5), the algorithm should work fine. Otherwise, a recursion error is likely
+# if shuffled_array = randomSequence(0, x <= 5), the algorithm should work fine. Otherwise, a recursion error is likely
 
 from random import shuffle
 
@@ -25,18 +25,18 @@ def bogoSort(array):
 
 if __name__ == "__main__":
     try:
-        from utils import random_sequence
+        from utils import randomSequence
     except ModuleNotFoundError:
         import os, sys  # import shuffler from parent directory
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
         sys.path.insert(0, parent_dir_path)
-        from utils import random_sequence
+        from utils import randomSequence
 
     print("BOGO SORT AKA STUPID SORT")
 
-    shuffled_array = random_sequence(0, 5)
+    shuffled_array = randomSequence(0, 5)
 
     print(shuffled_array, "\n")
 
