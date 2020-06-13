@@ -1,5 +1,7 @@
 #include <vector>
 
+#include "main.h"
+
 /**
  * Main bubblesort algorithm
  * @param array - vector to sort

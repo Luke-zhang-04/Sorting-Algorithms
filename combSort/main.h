@@ -1,12 +1,7 @@
-#include <iostream>
+#ifndef COMBSORT_H
+#define COMBSORT_H
 #include <vector>
 
-#include "./main.cpp"
+void combSort(std::vector<int> &array);
 
-#ifndef COMBSORT
-#define COMBSORT
-
-template <typename T>
-void combSort(T);
-
-#endif
+#endif //COMBSORT_H

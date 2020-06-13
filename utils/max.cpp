@@ -1,5 +1,7 @@
 #include <vector>
 
+#include "max.h"
+
 /**
  * Finds the largest item in a vector
  * @param array - array to look into

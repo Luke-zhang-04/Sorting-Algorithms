@@ -1,19 +1,22 @@
-#include <ostream>
+#include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <array>
+#include <functional>
 
-#include "./bogoSort/main.h"
-#include "./bubbleSort/main.h"
-#include "./cocktailShakerSort/main.h"
-#include "./combSort/main.h"
-#include "./countingSort/main.h"
-#include "./gnomeSort/main.h"
-#include "./insertionSort/main.h"
-#include "./mergeSort/main.h"
-#include "./mergeSortInPlace/main.h"
+#include "bogoSort/main.h"
+#include "bubbleSort/main.h"
+#include "cocktailShakerSort/main.h"
+#include "combSort/main.h"
+#include "countingSort/main.h"
+#include "gnomeSort/main.h"
+#include "insertionSort/main.h"
+#include "mergeSort/main.h"
+#include "mergeSortInPlace/main.h"
 
-#include "./utils/utils.h"
+#include "utils/utils.h"
 
+#define NUM_ALGOS 9
 
 using std::cout;
 using std::endl;
@@ -21,7 +24,7 @@ using std::string;
 
 int main(int argc, char* argv[]) {
 
-    const static std::unordered_map<std::string, int> stringCase {
+    const std::unordered_map<string, int> argMap {
         {"bogoSort", 1}, {"bogo", 1},
         {"bubbleSort", 2}, {"bubble", 2},
         {"cocktailShakerSort", 3}, {"cocktailShaker", 3}, {"cocktail", 3},
@@ -33,82 +36,73 @@ int main(int argc, char* argv[]) {
         {"mergeSortInPlace", 9}, {"mergeSortIP", 9}, {"mergeIP", 9}, {"IPMergeSort", 9}, {"IPMerge", 9},
     };
 
+    std::array<string, NUM_ALGOS+1> algoMessages = {
+        "",
+        "BOGO SORT AKA STUPID SORT",
+        "BUBBLE SORT",
+        "COCKTAIL SHAKER SORT",
+        "COMBSORT",
+        "COUNTING SORT",
+        "GNOME SORT",
+        "INSERTION SORT",
+        "MERGE SORT",
+        "IN PLACE MERGE SORT",
+    };
+
+    std::array< std::function<void(std::vector<int>&)>, NUM_ALGOS+1> algos = {
+        [](std::vector<int>& _){}, // Empty lambda that takes in vector reference
+        bogoSort,
+        bubbleSort,
+        cocktailShakerSort,
+        combSort,
+        countingSort,
+        gnomeSort,
+        insertionSort,
+    };
+
     for (int i = 1; i < argc; i++) {
-        string arg = string(argv[i]);
-        std::vector<int> shuffledArray = randomSequenceUtil(0, 1000);
-        void (*sort)(std::vector<int> &array){};
+        const int algoNum = argMap.at(string(argv[i]));
 
-        switch (stringCase.count(arg) ? stringCase.at(arg) : 0) {
-        case 1:
-            cout << "BOGO SORT AKA STUPID SORT" << endl;
-            shuffledArray = randomSequenceUtil(0, 10);
-            printArrayUtil(shuffledArray);
-            cout << endl;
+        int arrSize = algoNum == 1 ? 10 : 1000;
 
-            if (!issorted(shuffledArray)) {
-                printArrayUtil(bogoSort(shuffledArray));
-            }
+        std::vector<int> shuffledArray = utils::randomSequence(0, arrSize);
 
-            continue;
-        
-        case 2:
-            cout << "BUBBLE SORT" << endl;
-            sort = bubbleSort;
-            break;
-        
-        case 3:
-            cout << "COCKTAIL SHAKER SORT" << endl;
-            sort = cocktailShakerSort;
-            break;
-
-        case 4:
-            cout << "COMBSORT" << endl;
-            sort = combSort;
-            break;
-        
-        case 5: {
-            cout << "COUNTING SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            std::vector<int> sortedArray = countingSort(shuffledArray);
-            printArrayUtil(sortedArray);
-            continue;
-
-        } case 6:
-            cout << "GNOME SORT" << endl;
-            sort = gnomeSort;
-            break;
-        
-        case 7:
-            cout << "INSERTION SORT" << endl;
-            sort = insertionSort;
-            break;
-        
+        switch (algoNum){
         case 8: {
-            cout << "MERGE SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            std::vector<int> sortedArray = mergeSort(shuffledArray);
-            printArrayUtil(sortedArray);
-            continue;
+            cout << algoMessages[algoNum] << endl;
 
-        } case 9:
-            cout << "IN PLACE MERGE SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            mergeSort(shuffledArray, 0, shuffledArray.size() - 1);
-            printArrayUtil(shuffledArray);
-            continue;
+            utils::printArray(shuffledArray);
+            std::vector<int> sortedArray = mergeSort(shuffledArray);
+            cout << "\n" << endl;
+            utils::printArray(sortedArray);
+
+            break;
         
+        } case 9:
+            cout << algoMessages[algoNum] << endl;
+
+            utils::printArray(shuffledArray);
+            cout << "WTF" << endl;
+            mergeSortInPlace(shuffledArray, 0, shuffledArray.size() - 1);
+            cout << "\n" << endl;
+            utils::printArray(shuffledArray);
+
+            break;
+
         default:
-            cout << arg << " is not a sorting algorithm. Check your casing." << endl;
-            continue;
+            cout << algoMessages[algoNum] << endl;
+
+            utils::printArray(shuffledArray);
+            algos[algoNum](shuffledArray);
+            cout << "\n" << endl;
+            utils::printArray(shuffledArray);
+
+            break;
         }
 
-        printArrayUtil(shuffledArray);
-        cout << endl;
-        sort(shuffledArray);
-        printArrayUtil(shuffledArray);
+        if(i + 1 < argc) {
+            cout << endl;
+        }
     }
 
     return 0;

@@ -1,11 +1,8 @@
-#include <ostream>
+#ifndef MERGESORT_H
+#define MERGESORT_H
+
 #include <vector>
-#include "./main.cpp"
 
-#ifndef MERGESORT
-#define MERGESORT
+std::vector<int> mergeSort(std::vector<int> &array);
 
-template <typename T>
-std::vector<int> mergeSort(T);
-
-#endif
+#endif //MERGESORT_H

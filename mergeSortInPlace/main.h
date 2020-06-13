@@ -1,10 +1,8 @@
-#include <ostream>
+#ifndef MERGESORTINPLACE_H
+#define MERGESORTINPLACE_H
+
 #include <vector>
-#include "./main.cpp"
 
-#ifndef MERGESORTINPLACE
-#define MERGESORTINPLACE
+void mergeSortInPlace(std::vector<int> &array, int left, int right);
 
-void mergeSort(std::vector<int> &array, int left, int right);
-
-#endif
+#endif //MERGESORTINPLACE_H

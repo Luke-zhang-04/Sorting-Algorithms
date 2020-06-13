@@ -2,6 +2,9 @@
 #include <algorithm>
 #include <random>
 
+#include "main.h"
+#include "../utils/utils.h"
+
 /**
  * Check if array is sorted
  * @param array - pointer to desired array
@@ -22,8 +25,8 @@ bool issorted(std::vector<int> &array) {
  * @param array - pointer to shuffled array
  * @returns shuffled array (maybe, or recursion error)
  */
-std::vector<int> bogoSort(std::vector<int> &array) {
-    std::shuffle(std::begin(array), std::end(array), std::default_random_engine());
-
-    return issorted(array) ? array : bogoSort(array);
+void bogoSort(std::vector<int> &array) {
+    while (!issorted(array)){
+        utils::shuffle(array);
+    }
 }

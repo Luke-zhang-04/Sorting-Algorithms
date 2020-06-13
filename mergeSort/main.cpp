@@ -1,6 +1,9 @@
 #include <vector>
+#include <iostream>
 
 #include "../utils/slice.h"
+
+#include "./main.h"
 
 /**
  * Merges two vectors together
@@ -12,6 +15,8 @@ std::vector<int> merge(std::vector<int> array1, std::vector<int> array2) {
     std::vector<int> array;
     int first = 0;
     int second = 0;
+
+    std::cout << "BOOMER";
 
     while (first < array1.size() && second < array2.size()) {
         if (array1[first] > array2[second]) {

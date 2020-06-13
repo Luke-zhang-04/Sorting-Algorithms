@@ -1,4 +1,5 @@
 #include <vector>
+#include "main.h"
 
 /**
  * Calculates next gap

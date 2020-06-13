@@ -1,18 +1,11 @@
-#include <ostream>
+#ifndef UTILS_H
+#define UTILS_H
 #include <vector>
-#include "./utils.cpp"
 
-#ifndef RANDOMSEQUENCEUTIL
-#define RANDOMSEQUENCEUTIL
+namespace utils {
+    std::vector<int> randomSequence(int minimum, int maximum);
+    void printArray(const std::vector<int> &array);
+    void shuffle(std::vector<int>& array);
+}//namespace util
 
-std::vector<int> randomSequenceUtil(int minimum, int maximum);
-
-#endif
-
-
-#ifndef PRINTARRAYUTIL
-#define PRINTARRAYUTIL
-
-void printArrayUtil(const std::vector<int> &array);
-
-#endif
+#endif //UTILS_H

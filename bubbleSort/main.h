@@ -1,12 +1,7 @@
-#include <iostream>
+#ifndef BUBBLESORT_H
+#define BUBBLESORT_H
 #include <vector>
 
-#include "./main.cpp"
+void bubbleSort(std::vector<int> &array);
 
-#ifndef BUBBLESORT
-#define BUBBLESORT
-
-template <typename T>
-void bubbleSort(T);
-
-#endif
+#endif //BUBBLESORT_H

@@ -1,3 +1,7 @@
+#include <vector>
+
+#include "slice.h"
+
 /**
  * Slices a vector
  * @param v - vector to slice

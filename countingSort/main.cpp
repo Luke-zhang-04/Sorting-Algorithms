@@ -1,13 +1,14 @@
 #include <vector>
 
+#include "main.h"
 #include "../utils/max.h"
 
 /**
  * Main countingsort function
  * @param array - array to sort
- * @returns sorted array; does not sort in place
+ * @returns void; sorts in-place
  */
-std::vector<int> countingSort(std::vector<int> &array) {
+void countingSort(std::vector<int> &array) {
     std::vector<int> count;
     std::vector<int> output; //create output array
 
@@ -34,5 +35,5 @@ std::vector<int> countingSort(std::vector<int> &array) {
         count[i]--;
     }
 
-    return output;
+    array = output;
 }

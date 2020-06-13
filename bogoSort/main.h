@@ -1,12 +1,7 @@
+#ifndef BOGOSORT_H
+#define BOGOSORT_H
 #include <vector>
 
-#include "./main.cpp"
+void bogoSort(std::vector<int> &array);
 
-#ifndef BOGOSORT
-#define BOGOSORT
-
-template <typename T>
-
-std::vector<int> bogoSort(T);
-
-#endif
+#endif //BOGOSORT_H

@@ -1,6 +1,10 @@
 #include <vector>
+#include <iostream>
+using namespace std;
 
 #include "../utils/slice.h"
+
+#include "./main.h"
 
 /**
  * Merges an array with indexes start, middle, and end in place
@@ -46,13 +50,14 @@ void merge(std::vector<int> &array, int start, int mid, int end) {
  * @param right - end of segment to be sorted (pass in array.size() - 1 if sorting entire array)
  * @returns void; sorts in-place
  */
-void mergeSort(std::vector<int> &array, int left, int right) {
+void mergeSortInPlace(std::vector<int> &array, int left, int right) {
+    std::cout << "WTF BRUH";
     if (right > left) {
         // Split array into halves
-        const int half = left + (right - left) / 2; // Halfway point
+        int half = left + (right - left) / 2; // Halfway point
 
-        mergeSort(array, left, half);
-        mergeSort(array, half + 1, right);
+        mergeSortInPlace(array, left, half);
+        mergeSortInPlace(array, half + 1, right);
 
         // Merge left and right sides
         merge(array, left, half, right);

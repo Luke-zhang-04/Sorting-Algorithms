@@ -1,12 +1,7 @@
-#include <iostream>
+#ifndef SHAKERSORT_H
+#define SHAKERSORT_H
 #include <vector>
 
-#include "./main.cpp"
+void cocktailShakerSort(std::vector<int> &array);
 
-#ifndef COCKTAILSHAKERSORT
-#define COCKTAILSHAKERSORT
-
-template <typename T>
-void cocktailShakerSort(T);
-
-#endif
+#endif //SHAKERSORT_H

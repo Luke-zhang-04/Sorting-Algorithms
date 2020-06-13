@@ -1,12 +1,7 @@
-#include <iostream>
+#ifndef INSERTSORT_H
+#define INSERTSORT_H
 #include <vector>
 
-#include "./main.cpp"
+void insertionSort(std::vector<int> &array);
 
-#ifndef INSERTIONSORT
-#define INSERTIONSORT
-
-template <typename T>
-void insertionSort(T);
-
-#endif
+#endif //INSERTSORT_H

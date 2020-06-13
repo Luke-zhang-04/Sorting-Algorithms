@@ -73,17 +73,17 @@ go build main.go
 ### C++ ###
 #### Build/compile ####
 ```bash
-g++ -o <executableName> main.cpp -std=c++17
+make
 ```
 #### Run/execute ####
 ```bash
-./<executableName> <sortnames>
+./bin <sortnames>
 ```
 ```bash
-./<executableName> bogo bubbleSort
+./bin bogo bubbleSort
 ```
 E.g
 ```bash
-g++ -o bin main.cpp -std=c++17
+make
 ./bin bogo bubbleSort
 ```
