@@ -6,7 +6,7 @@
 /**
  * Main countingsort function
  * @param array - array to sort
- * @returns sorted array; does not sort in place
+ * @returns void; sorts in-place
  */
 void countingSort(std::vector<int> &array) {
     std::vector<int> count;

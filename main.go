@@ -59,6 +59,24 @@ func main() {
 			sort = sorts.InsertionSort
 			break
 
+		case "mergeSort", "merge":
+			print("MERGE SORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sortedArray := sorts.MergeSort(shuffledArray)
+			print(sortedArray)
+			continue
+
+		case "mergeSortInPlace", "mergeSortIP", "IPMergeSort", "mergeIP", "mergeInPlace", "IPMerge":
+			print("IN PLACE MERGE SORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.MergeSortInPlace(shuffledArray, 0, len(shuffledArray)-1)
+			print(shuffledArray)
+			continue
+
 		default:
 			print(fmt.Sprintf("NameError: %s is not a sorting algorithm. Check your casing.\n", arg))
 			continue

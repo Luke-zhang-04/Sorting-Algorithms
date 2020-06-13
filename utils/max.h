@@ -1,7 +1,8 @@
-#ifndef MAX_H
-#define MAX_H
+#ifndef MAX
+#define MAX
+
 #include <vector>
 
 int max(std::vector<int> &array);
 
-#endif //MAX_H
+#endif

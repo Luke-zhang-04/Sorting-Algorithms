@@ -8,7 +8,7 @@
 using std::chrono::high_resolution_clock;
 using std::chrono::time_point_cast;
 
-namespace util{
+namespace utils {
     /**
      * Generates random vector from minimum to maximum
      * @param minmum - minimum value

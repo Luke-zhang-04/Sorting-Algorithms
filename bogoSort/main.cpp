@@ -27,6 +27,6 @@ bool issorted(std::vector<int> &array) {
  */
 void bogoSort(std::vector<int> &array) {
     while (!issorted(array)){
-        util::shuffle(array);
+        utils::shuffle(array);
     }
 }
