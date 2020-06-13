@@ -22,7 +22,7 @@ using std::string;
 
 int main(int argc, char* argv[]) {
 
-    std::unordered_map<string, int> argMap {
+    const std::unordered_map<string, int> argMap {
         {"bogoSort", 1}, {"bogo", 1},
         {"bubbleSort", 2}, {"bubble", 2},
         {"cocktailShakerSort", 3}, {"cocktailShaker", 3}, {"cocktail", 3},
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
     };
 
     for (int i = 1; i < argc; i++) {
-        const int algoNum = argMap[string(argv[i])];
+        const int algoNum = argMap.at(string(argv[i]));
 
         int arrSize = 1000;
         if (algoNum == 1) arrSize = 10;
