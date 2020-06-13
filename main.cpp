@@ -10,6 +10,7 @@
 #include "./gnomeSort/main.h"
 #include "./insertionSort/main.h"
 #include "./mergeSort/main.h"
+#include "./mergeSortInPlace/main.h"
 
 #include "./utils/utils.h"
 
@@ -29,11 +30,13 @@ int main(int argc, char* argv[]) {
         {"gnomeSort", 6}, {"gnome", 6},
         {"insertionSort", 7}, {"insertion", 7}, {"insert", 7},
         {"mergeSort", 8}, {"merge", 8},
+        {"mergeSortInPlace", 9}, {"mergeSortIP", 9}, {"mergeIP", 9}, {"IPMergeSort", 9}, {"IPMerge", 9},
     };
 
     for (int i = 1; i < argc; i++) {
         string arg = string(argv[i]);
         std::vector<int> shuffledArray = randomSequenceUtil(0, 1000);
+        void (*sort)(std::vector<int> &array){};
 
         switch (stringCase.count(arg) ? stringCase.at(arg) : 0) {
         case 1:
@@ -50,23 +53,17 @@ int main(int argc, char* argv[]) {
         
         case 2:
             cout << "BUBBLE SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            bubbleSort(shuffledArray);
+            sort = bubbleSort;
             break;
         
         case 3:
             cout << "COCKTAIL SHAKER SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            cocktailShakerSort(shuffledArray);
+            sort = cocktailShakerSort;
             break;
 
         case 4:
             cout << "COMBSORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            combSort(shuffledArray);
+            sort = combSort;
             break;
         
         case 5: {
@@ -79,19 +76,13 @@ int main(int argc, char* argv[]) {
 
         } case 6:
             cout << "GNOME SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            gnomeSort(shuffledArray);
-            printArrayUtil(shuffledArray);
-            continue;
+            sort = gnomeSort;
+            break;
         
         case 7:
             cout << "INSERTION SORT" << endl;
-            printArrayUtil(shuffledArray);
-            cout << endl;
-            insertionSort(shuffledArray);
-            printArrayUtil(shuffledArray);
-            continue;
+            sort = insertionSort;
+            break;
         
         case 8: {
             cout << "MERGE SORT" << endl;
@@ -100,13 +91,23 @@ int main(int argc, char* argv[]) {
             std::vector<int> sortedArray = mergeSort(shuffledArray);
             printArrayUtil(sortedArray);
             continue;
-        }
+
+        } case 9:
+            cout << "IN PLACE MERGE SORT" << endl;
+            printArrayUtil(shuffledArray);
+            cout << endl;
+            mergeSort(shuffledArray, 0, shuffledArray.size() - 1);
+            printArrayUtil(shuffledArray);
+            continue;
         
         default:
             cout << arg << " is not a sorting algorithm. Check your casing." << endl;
             continue;
         }
 
+        printArrayUtil(shuffledArray);
+        cout << endl;
+        sort(shuffledArray);
         printArrayUtil(shuffledArray);
     }
 

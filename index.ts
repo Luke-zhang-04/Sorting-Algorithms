@@ -1,6 +1,7 @@
 import bogoSort from "./bogoSort"
 import countingSort from "./countingSort"
 import mergeSort from "./mergeSort"
+import {default as IPMergeSort} from "./mergeSortInPlace"
 import program from "commander"
 import randomSequence from "./utils"
 
@@ -13,6 +14,7 @@ program
     .option("-gnome, --gnomeSort", 'Run gnome sort algorithm')
     .option("-insertion, --insertionSort", 'Run insertion sort algorithm')
     .option("-merge, --mergeSort", 'Run merge sort algorithm')
+    .option("-mergeIP, --mergeSortInPlace", 'Run in-place merge sort algorithm')
 
 program.parse(process.argv)
 
@@ -29,7 +31,8 @@ const notInPlace = (sort: (array: number[]) => number[]) => {
     specialCases = [
         "bogoSort",
         "countingSort",
-        "mergeSort"
+        "mergeSort",
+        "mergeSortInPlace",
     ],
     commanderArgs = [
         "program",
@@ -43,13 +46,20 @@ const notInPlace = (sort: (array: number[]) => number[]) => {
         "rawArgs",
     ]
 
-if (program.bogoSort) {
-    const shuffledArray = randomSequence(0, 7) // Max range
-    console.log(shuffledArray)
-    console.log(bogoSort(shuffledArray))
-}
-
 for (const [key, value] of Object.entries(program)) {
+    if (key === "bogoSort" && value) {
+        const shuffledArray = randomSequence(0, 7) // Max range
+        console.log(shuffledArray)
+        console.log(bogoSort(shuffledArray))
+        continue
+    } else if (key === "mergeSortInPlace" && value) {
+        const shuffledArray = randomSequence(0, 1000) // Max range
+        console.log(shuffledArray)
+        IPMergeSort(shuffledArray, 0, shuffledArray.length - 1)
+        console.log(shuffledArray)
+        continue
+    }
+
     if (
         key[0] !== "_" &&
         !commanderArgs.includes(key) &&
@@ -68,6 +78,8 @@ for (const [key, value] of Object.entries(program)) {
         } catch (err) {
             console.log(err)
         }
+
+        continue
     
     } else if (
         key[0] !== "_" &&
@@ -81,5 +93,6 @@ for (const [key, value] of Object.entries(program)) {
         } catch (err) {
             console.log(err)
         }
+        continue
     }
 }

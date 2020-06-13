@@ -61,11 +61,20 @@ func main() {
 
 		case "mergeSort", "merge":
 			print("MERGE SORT")
-			shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high
+			shuffledArray := utils.RandomSequence(0, 1000)
 			print(shuffledArray)
 			print()
 			sortedArray := sorts.MergeSort(shuffledArray)
 			print(sortedArray)
+			continue
+
+		case "mergeSortInPlace", "mergeSortIP", "IPMergeSort", "mergeIP", "mergeInPlace", "IPMerge":
+			print("IN PLACE MERGE SORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.MergeSortInPlace(shuffledArray, 0, len(shuffledArray)-1)
+			print(shuffledArray)
 			continue
 
 		default:

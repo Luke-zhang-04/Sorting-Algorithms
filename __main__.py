@@ -7,6 +7,7 @@ from countingSort import countingSort
 from gnomeSort import gnomeSort
 from insertionSort import insertionSort
 from mergeSort import mergeSort
+import mergeSortInPlace as IPMergeSort
 
 from utils import randomSequence
 
@@ -34,6 +35,12 @@ for target in args:
         continue
     elif target == "mergeSort":
         notInPlace(mergeSort)
+        continue
+    elif target in ("mergeSortInPlace", "mergeSortIP", "IPMergeSort"):
+        shuffledArray = randomSequence(0, 1000)
+        print(shuffledArray, end="\n\n")
+        IPMergeSort.mergeSort(shuffledArray)
+        print(shuffledArray, end="\n\n")
         continue
 
     shuffledArray = randomSequence(0, 1000)
