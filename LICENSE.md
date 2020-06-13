@@ -4,7 +4,7 @@ This repository is dual-licensed under the MIT license and the unlicense
 ***
 
 ## Files with animated sorts are licensed under the MIT license.
-***These include all files with the Animated suffix***
+***This includes all files that are in the `animated` directory***<br/>
 Copyright 2020 Luke Zhang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -15,8 +15,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ***
 
-## Files with unanimated sorts are licend under the Unlicense
-***These include all files without the -animated suffix***
+## Files with unanimated sorts are licened under the Unlicense
+***This includes all files that are not in the `animated` directory***<br/>
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or

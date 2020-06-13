@@ -15,21 +15,43 @@ func main() {
 	for _, arg := range args {
 		var sort func([]int)
 
-		if arg == "bogoSort" || arg == "bogo" {
+		switch arg {
+		case "bogoSort", "bogo":
 			print("BOGO SORT AKA STUPID SORT")
 			shuffledArray := utils.RandomSequence(0, 5) // Don't set this value too high
 			print(shuffledArray)
 			print()
 			sorts.BogoSort(shuffledArray)
 			print(shuffledArray)
-
 			continue
-		} else if arg == "bubbleSort" || arg == "bubble" {
+
+		case "bubbleSort", "bubble":
 			print("BUBBLE SORT")
 			sort = sorts.BubbleSort
-		} else if arg == "cocktailShakerSort" || arg == "cocktail" {
+			break
+
+		case "cocktailShakerSort", "cocktail":
 			print("COCKTAIL SHAKER SORT")
 			sort = sorts.CocktailShakerSort
+			break
+
+		case "combSort", "comb":
+			print("COMB SORT")
+			sort = sorts.CombSort
+			break
+
+		case "countingSort", "count":
+			print("COUNTING SORT")
+			shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high
+			print(shuffledArray)
+			print()
+			sortedArray := sorts.CountingSort(shuffledArray)
+			print(sortedArray)
+			continue
+
+		default:
+			print(fmt.Sprintf("NameError: %s is not a sorting algorithm. Check your casing.\n", arg))
+			continue
 		}
 
 		shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high

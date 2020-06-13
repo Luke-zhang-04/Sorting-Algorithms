@@ -18,9 +18,11 @@ node . --help
 ```
 ```bash
 Options:
-  -bogo, --bogoSort      Run bogosort algorithm
-  -bubble, --bubbleSort  Run bubblesort algorithm
-  -h, --help             display help for command
+  -bogo, --bogoSort                Run bogo sort algorithm
+  -bubble, --bubbleSort            Run bubble sort algorithm
+  -cocktail, --cocktailShakerSort  Run cocktail shaker sort algorithm
+  -comb, --combSort                Run comb sort algorithm
+  -h, --help                       display help for command
 ```
 Example:
 ```bash
