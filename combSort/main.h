@@ -5,4 +5,3 @@
 void combSort(std::vector<int> &array);
 
 #endif //COMBSORT_H
-

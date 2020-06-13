@@ -2,7 +2,7 @@
 #define UTILS_H
 #include <vector>
 
-namespace util{
+namespace utils {
     std::vector<int> randomSequence(int minimum, int maximum);
     void printArray(const std::vector<int> &array);
     void shuffle(std::vector<int>& array);
