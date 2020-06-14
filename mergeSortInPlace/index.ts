@@ -49,7 +49,11 @@ const merge = (
  * @param {number} right - end of segment to be sorted (pass in array.length - 1 if sorting entire array)
  * @returns {void} void; sorts in-place
  */
-const mergeSort = (array: number[], left: number, right: number): void => {
+const mergeSort = (array: number[], left?: number, right?: number): void => {
+    if (left === undefined || right === undefined) {
+        [left, right] = [0, array.length - 1]
+    }
+
     if (right > left) {
         // Split array into halves
         const half = Math.floor(left + (right - left) / 2) // Halfway point
