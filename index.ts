@@ -1,7 +1,7 @@
 import bogoSort from "./bogoSort"
 import countingSort from "./countingSort"
 import mergeSort from "./mergeSort"
-import {default as IPMergeSort} from "./mergeSortInPlace"
+import {default as mergeSortInPlace} from "./mergeSortInPlace"
 import program from "commander"
 import randomSequence from "./utils"
 
@@ -15,6 +15,7 @@ program
     .option("-insertion, --insertionSort", 'Run insertion sort algorithm')
     .option("-merge, --mergeSort", 'Run merge sort algorithm')
     .option("-mergeIP, --mergeSortInPlace", 'Run in-place merge sort algorithm')
+    .option("-quick, --quickSort", 'Run quickSort sort algorithm')
 
 program.parse(process.argv)
 
@@ -32,7 +33,6 @@ const notInPlace = (sort: (array: number[]) => number[]) => {
         "bogoSort",
         "countingSort",
         "mergeSort",
-        "mergeSortInPlace",
     ],
     commanderArgs = [
         "program",
@@ -51,12 +51,6 @@ for (const [key, value] of Object.entries(program)) {
         const shuffledArray = randomSequence(0, 7) // Max range
         console.log(shuffledArray)
         console.log(bogoSort(shuffledArray))
-        continue
-    } else if (key === "mergeSortInPlace" && value) {
-        const shuffledArray = randomSequence(0, 1000) // Max range
-        console.log(shuffledArray)
-        IPMergeSort(shuffledArray, 0, shuffledArray.length - 1)
-        console.log(shuffledArray)
         continue
     }
 

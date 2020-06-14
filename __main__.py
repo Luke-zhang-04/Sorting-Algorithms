@@ -8,6 +8,7 @@ from gnomeSort import gnomeSort
 from insertionSort import insertionSort
 from mergeSort import mergeSort
 import mergeSortInPlace as IPMergeSort
+from quickSort import quickSort
 
 from utils import randomSequence
 

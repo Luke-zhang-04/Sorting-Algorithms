@@ -13,7 +13,7 @@ func max(array []int) int {
 
 // CountingSort main countingsort function
 // Does not sort in place, returns []int
-func CountingSort(array []int) []int {
+func CountingSort(array []int) {
 	count := make([]int, max(array)+1)
 
 	for i := 0; i < len(array); i++ { // Iterate through given array, and add 1 to the index which is the value of array[i]
@@ -30,5 +30,5 @@ func CountingSort(array []int) []int {
 		count[i]--
 	}
 
-	return output
+	array = output
 }
