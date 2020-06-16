@@ -45,6 +45,9 @@ class Animator(CanvasPlus):
 
     def finished(self) -> None:
         """Call on finish, and make everything green"""
+        for i in self:
+            self.itemconfig(i, fill="white")
+
         for i in self.rectangles:
             self.itemconfig(i, fill="green")
             self.update()

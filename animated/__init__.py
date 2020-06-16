@@ -7,6 +7,7 @@ from animated.animator import Animator
 
 import animated.bogoSort as bogoSort
 import animated.bubbleSort as bubbleSort
+import animated.cocktailShakerSort as cocktailShakerSort
 
 
 class Menu:
@@ -32,7 +33,7 @@ class Menu:
             "col": 2,
             "row": 1,
             "colour": "red",
-            "callback": lambda: print(),
+            "callback": lambda: cocktailShakerSort.main(),
         },
         "combsort": {
             "title": "Comb sort",
