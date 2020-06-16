@@ -18,6 +18,7 @@ func main() {
 		"combSort": 3, "comb": 3,
 		"gnomeSort": 4, "gnome": 4,
 		"insertionSort": 5, "insertion": 5, "insert": 5,
+		"selectionSort": 6, "selection": 6, "select": 6,
 	}
 
 	functions := map[int]func([]int){
@@ -26,6 +27,7 @@ func main() {
 		3: sorts.CombSort,
 		4: sorts.GnomeSort,
 		5: sorts.InsertionSort,
+		6: sorts.SelectionSort,
 	}
 
 	messages := map[int]string{
@@ -34,6 +36,7 @@ func main() {
 		3: "COMB SORT",
 		4: "GNOME SORT",
 		5: "INSERTION SORT",
+		6: "SELECTION SORT",
 	}
 
 	for _, arg := range args {
