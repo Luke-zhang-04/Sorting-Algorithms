@@ -3,7 +3,7 @@ package sorts
 // ShellSort main shellsort algorithm
 // Returns void; sorts in-place
 func ShellSort(array []int) {
-	gap := len(array) / 2
+	gap := len(array) / 2 // Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
 	for gap >= 1 {
 		for i := gap; i < len(array); i++ { // Iterate through array, starting from gap
 			comparator := array[i] // Make comparisons with this

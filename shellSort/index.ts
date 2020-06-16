@@ -6,7 +6,7 @@ import randomSequence from "../utils"
  * @returns {void} void; sorts in-place
  */
 const shellSort = (array: number[]): void => {
-    let gap = Math.floor(array.length/2)
+    let gap = Math.floor(array.length/2) // Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
 
     while (gap >= 1) {
         for (let i = gap; i < array.length; i ++) { // Iterate through array, starting from gap
