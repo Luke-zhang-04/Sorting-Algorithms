@@ -10,13 +10,14 @@ from mergeSort import mergeSort
 import mergeSortInPlace as IPMergeSort
 from quickSort import quickSort
 from radixSort import radixSort
+from selectionSort import selectionSort
+from shellSort import shellSort
 
 from utils import randomSequence
 
 import sys
 
 args = sys.argv[1:]
-
 
 def notInPlace(sort):
     shuffledArray = randomSequence(0, 1000)

@@ -15,14 +15,20 @@
 #include "mergeSortInPlace/main.h"
 #include "quickSort/main.h"
 #include "radixSort/main.h"
+#include "selectionSort/main.h"
+#include "shellSort/main.h"
 
 #include "utils/utils.h"
 
-#define NUM_ALGOS 12
+#define NUM_ALGOS 14
 
 using std::cout;
 using std::endl;
 using std::string;
+
+void fillerSort(std::vector<int> &array) {
+    return;
+}
 
 int main(int argc, char* argv[]) {
 
@@ -39,6 +45,8 @@ int main(int argc, char* argv[]) {
         {"quickSort", 10}, {"quick", 10},
         {"radix", 11}, {"radixSort", 11}, {"lsd", 11}, {"radixLSD", 11},
         {"msd", 12}, {"radixMSD", 12},
+        {"selectionSort", 13}, {"selection", 13}, {"select", 13},
+        {"shell", 14}, {"shellSort", 14},
     };
 
     std::array<string, NUM_ALGOS+1> algoMessages = {
@@ -55,6 +63,8 @@ int main(int argc, char* argv[]) {
         "QUICKSORT",
         "RADIX SORT LSD",
         "RADIX SORT MSD",
+        "SELECTIONSORT,"
+        "SHELL SORT"
     };
 
     std::array< std::function<void(std::vector<int>&)>, NUM_ALGOS+1> algos = {
@@ -66,6 +76,13 @@ int main(int argc, char* argv[]) {
         countingSort,
         gnomeSort,
         insertionSort,
+        fillerSort,
+        fillerSort,
+        fillerSort,
+        fillerSort,
+        fillerSort,
+        selectionSort,
+        shellSort,
     };
 
     for (int i = 1; i < argc; i++) {
