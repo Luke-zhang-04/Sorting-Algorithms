@@ -45,7 +45,8 @@ Options:
   -quick, --quickSort              Run quickSort sort algorithm
   -lsd, --radixLSD                 Run radix sort least significant digit algorithm
   -msd, --radixMSD                 Run raidx sort most significant digit algorithm
-  -shell, --shellSort              Run raidx sort most significant digit algorithm
+  -shell, --shellSort              Run raidx sort algorithm
+  -tim, --timSort                  Run tim sort algorithm
   -h, --help                       display help for command
 ```
 Example:
