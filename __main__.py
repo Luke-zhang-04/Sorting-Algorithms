@@ -14,6 +14,8 @@ from selectionSort import selectionSort
 from shellSort import shellSort
 from timSort import timSort
 
+from animated import Menu
+
 from typing import Callable, List
 from utils import randomSequence
 
@@ -55,6 +57,10 @@ for target in args:
         print(shuffledArray, end="\n\n")
         radixSort(shuffledArray, msd=True, digit=None)
         print(shuffledArray, end="\n\n")
+        continue
+    elif target in ("animated", "animate"):
+        menu = Menu()
+        menu.render()
         continue
 
     shuffledArray = randomSequence(0, 1000)
