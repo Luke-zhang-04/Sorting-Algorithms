@@ -3,11 +3,16 @@ A collection of sorting algorithms in Python 3, Golang, JavaScript, and C++. Alg
 
 ## How to run ##
 ### Python ###
-#### Install dependencies ####
+#### Animated ####
+##### Install dependencies #####
 ```bash
 pip install -r requirements.txt
 ```
-#### Run Program ####
+##### Run Program #####
+```bash
+python3 . animated
+```
+#### Normal ####
 ```bash
 python3 . <sortNames>
 ```

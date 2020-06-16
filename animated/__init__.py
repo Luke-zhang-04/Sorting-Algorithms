@@ -3,6 +3,10 @@ Copyright (C) Luke Zhang | MIT License | https://luke-zhang-04.github.io/
 """
 
 from tkinter import Tk, Button, Label
+from animated.animator import Animator
+
+import animated.bogoSort as bogoSort
+import animated.bubbleSort as bubbleSort
 
 
 class Menu:
@@ -14,14 +18,14 @@ class Menu:
             "col": 0,
             "row": 1,
             "colour": "brown",
-            "callback": lambda: print(),
+            "callback": lambda: bogoSort.main(),
         },
         "bubblesort": {
             "title": "Bubble sort",
             "col": 1,
             "row": 1,
             "colour": "skyblue",
-            "callback": lambda: print(),
+            "callback": lambda: bubbleSort.main(),
         },
         "cocktailshakersort": {
             "title": "Cocktail sort",
