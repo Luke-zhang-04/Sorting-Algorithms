@@ -21,9 +21,7 @@ def countingSort(array, exp):
     array[:] = output
 
 
-def digit(
-    number, n
-):
+def digit(number, n):
     """Indexes integer without type conversion (e.g digit(253, 1) returns 5)"""
     return number // 10 ** n % 10
 
@@ -57,7 +55,7 @@ def seperate(array, digit):
 def radixSort(array, lsd=False, msd=False, **kwargs):
     if lsd:  # LSD radix sort
         for i in range(len(str(max(array)))):
-           countingSort(array, i)
+            countingSort(array, i)
 
     elif msd:  # MSD radix sort
         digit = len(str(max(array))) - 1 if kwargs["digit"] == None else kwargs["digit"]
