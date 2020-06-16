@@ -60,7 +60,7 @@ def main() -> int:
         sys.path.insert(0, parent_dir_path)
         from utils import randomSequence
 
-    shuffledArray = randomSequence(0, 50)
+    shuffledArray = randomSequence(0, 100)
 
     root = Tk()
 
