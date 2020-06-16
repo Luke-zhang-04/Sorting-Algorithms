@@ -1,5 +1,10 @@
-def countingSort(array):
-    """Main countingsort algorith"""
+from typing import List
+
+
+def countingSort(array: List[int]) -> None:
+    """Main countingsort algorith\n
+    Sorts in-place; returns None.
+    """
     count = [0 for _ in range(max(array) + 1)]  # create array with zeros
 
     for i in range(
@@ -17,7 +22,7 @@ def countingSort(array):
         output[count[i] - 1] = i
         count[i] -= 1
 
-    return output
+    array[:] = output
 
 
 if __name__ == "__main__":
@@ -37,6 +42,6 @@ if __name__ == "__main__":
 
     print(shuffledArray, "\n")
 
-    sortedArray = countingSort(shuffledArray)
+    countingSort(shuffledArray)
 
-    print(sortedArray)
+    print(shuffledArray)

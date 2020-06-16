@@ -1,7 +1,9 @@
-def insertionSort(array, start, end):
-    """Main insertion sort algorithm
+from typing import List
 
-    Returns void; sorts in-place
+
+def insertionSort(array: List[int], start: int, end: int) -> None:
+    """Main insertion sort algorithm\n
+    Sorts array in-place; returns None
     """
     for i in range(start + 1, end):  # Iterate through entire array
         comparator = array[i]  # Make comparison with this value
@@ -20,7 +22,7 @@ def insertionSort(array, start, end):
         ] = comparator  # Insert comparator into the array, in its correct position
 
 
-def merge(array, start, mid, end):
+def merge(array: List[int], start: int, mid: int, end: int) -> int:
     """Merges two arrays"""
     start2 = mid + 1
 
@@ -45,7 +47,10 @@ def merge(array, start, mid, end):
             start2 += 1
 
 
-def timSort(array, run=32):
+def timSort(array: List[int], run: int = 32) -> None:
+    """Main timsort function\n
+    Sorts array in-place; returns None
+    """
     # Run insertionsort
     for i in range(0, len(array), run):
         insertionSort(array, i, min(i + run, len(array)))

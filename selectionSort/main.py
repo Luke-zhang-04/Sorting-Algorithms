@@ -1,7 +1,9 @@
-def selectionSort(array):
-    """Main selectionsort algorithm
-    
-    returns void; sorts in-place
+from typing import List
+
+
+def selectionSort(array: List[int]) -> None:
+    """Main selectionsort algorithm\n
+    Sorts array in-place; returns None
     """
     for i in range(len(array)):  # Iterate through entire array
         index = array.index(min(array[i:]))  # Get index of smallest item

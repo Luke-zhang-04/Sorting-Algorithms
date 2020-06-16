@@ -1,5 +1,11 @@
-def partition(array, left, right, pt):
-    """Moves array elements to the correct sides of pivot (pt)"""
+from typing import List
+
+
+def partition(array: List[int], left: int, right: int, pt: int) -> int:
+    """Moves array elements to the correct sides of pivot (pt)\n
+    Returns new pivot point after partition\n
+    Performs partition in place
+    """
     while True:
         swaps = 0  # Keep track of the swaps made
 
@@ -25,17 +31,16 @@ def partition(array, left, right, pt):
     return pt
 
 
-def quickSort(array, *args):
-    """Main quicksort function
-    
-    *args: leave blank to sort whole array, otherwise define start and end
-    returns void; sorts in-place
+def quickSort(array: List[int], *args: List[int]) -> None:
+    """Main quicksort function\n
+    *args: leave blank to sort whole array, otherwise define start and end\n
+    Sorts array in-place; returns None
     """
+
+    left, right = 0, len(array) - 1
 
     if len(args) == 2:
         left, right = args
-    else:
-        left, right = 0, len(array) - 1
 
     if left < right - 1:
         half = (left + right) // 2  # Midpoint of the array
@@ -70,19 +75,7 @@ if __name__ == "__main__":
 
     print("IN PLACE QUICK SORT")
 
-    # shuffledArray = randomSequence(0, 1000)
-    shuffledArray = [
-        7,
-        6,
-        8,
-        2,
-        1,
-        4,
-        0,
-        3,
-        9,
-        5,
-    ]
+    shuffledArray = randomSequence(0, 1000)
 
     print(shuffledArray, "\n")
 

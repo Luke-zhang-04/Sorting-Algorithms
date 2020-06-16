@@ -14,13 +14,15 @@ from selectionSort import selectionSort
 from shellSort import shellSort
 from timSort import timSort
 
+from typing import Callable, List
 from utils import randomSequence
 
 import sys
 
 args = sys.argv[1:]
 
-def notInPlace(sort):
+
+def notInPlace(sort: Callable[[List[int]], List[int]]) -> None:
     shuffledArray = randomSequence(0, 1000)
     print(shuffledArray, end="\n\n")
     sortedArray = sort(shuffledArray)
@@ -33,9 +35,6 @@ for target in args:
         print(shuffledArray, end="\n\n")
         bogoSort(shuffledArray)
         print(shuffledArray, end="\n\n")
-        continue
-    elif target == "countingSort":
-        notInPlace(countingSort)
         continue
     elif target == "mergeSort":
         notInPlace(mergeSort)

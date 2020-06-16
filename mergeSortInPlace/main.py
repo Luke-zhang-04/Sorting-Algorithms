@@ -1,5 +1,10 @@
-def merge(array, start, mid, end):
-    """Merges two arrays"""
+from typing import List
+
+
+def merge(array: List[int], start: int, mid: int, end: int) -> None:
+    """Merges two arrays\n
+    Merges array[start:mid] and array[mid:end] in place; returns None.
+    """
     start2 = mid + 1
 
     if array[mid] <= array[start2]:
@@ -23,11 +28,10 @@ def merge(array, start, mid, end):
             start2 += 1
 
 
-def mergeSort(array, *args):
-    """Main merge sort algorithm
-
-    *args: left and right indexes (optional)
-    Returns void; sorts in-place
+def mergeSort(array: List[int], *args: List[int]) -> None:
+    """Main merge sort algorithm\n
+    *args: left and right indexes (optional, leave blank for whole array)\n
+    Sorts array in-place; returns None.
     """
 
     if len(args) == 2:
