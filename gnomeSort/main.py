@@ -1,4 +1,7 @@
-def gnomeSort(array: [list]):
+from typing import List
+
+
+def gnomeSort(array: List[int]) -> None:
     """Main gnome sort function"""
     i = 1
     while i < len(array):  # Iterate until end of array

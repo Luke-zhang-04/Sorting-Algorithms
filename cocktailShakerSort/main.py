@@ -1,5 +1,10 @@
-def cocktailShakerSort(array):
-    """Main cocktail shaker sort algorithm"""
+from typing import List
+
+
+def cocktailShakerSort(array: List[int]) -> None:
+    """Main cocktail shaker sort algorithm\n
+    Sorts array in place; returns None.
+    """
 
     for amt in range(
         len(array) // 2 + len(array) % 2

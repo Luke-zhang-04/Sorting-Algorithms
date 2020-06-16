@@ -1,6 +1,9 @@
-def insertionSort(array):
-    """Main insertion sort algorithm
-    Returns void; sorts in-place
+from typing import List
+
+
+def insertionSort(array: List[int]) -> None:
+    """Main insertion sort algorithm\n
+    Sorts array in-place; returns None
     """
     for i in range(1, len(array)):  # Iterate through entire array
         comparator = array[i]  # Make comparison with this value

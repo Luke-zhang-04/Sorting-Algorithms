@@ -1,4 +1,7 @@
-def merge(array1, array2):
+from typing import List
+
+
+def merge(array1: List[int], array2: List[int]) -> List[int]:
     """Merges two arrays"""
     array = []  # Merged array
     first = second = 0  # Starting points
@@ -27,10 +30,9 @@ def merge(array1, array2):
     return array
 
 
-def mergeSort(array):
-    """Main merge sort algorithm
-
-    Returns sorted array; does not sort in-place
+def mergeSort(array: List[int]) -> List[int]:
+    """Main merge sort algorithm\n
+    Sorts array and returns it in sorted form
     """
     if len(array) > 1:
         # Split array into to halves

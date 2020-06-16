@@ -1,5 +1,10 @@
-def bubbleSort(array):
-    """Main bubble sort algorithm"""
+from typing import List
+
+
+def bubbleSort(array: List[int]) -> None:
+    """Main bubble sort algorithm
+    Sorts array in-place, returns None
+    """
 
     for amt in range(len(array)):
         swaps = 0
@@ -11,8 +16,6 @@ def bubbleSort(array):
 
         if swaps == 0:
             break  # Array is in order
-
-    return array
 
 
 if __name__ == "__main__":
@@ -32,4 +35,6 @@ if __name__ == "__main__":
 
     print(shuffledArray, "\n")
 
-    print(bubbleSort(shuffledArray))
+    bubbleSort(shuffledArray)
+
+    print(shuffledArray)

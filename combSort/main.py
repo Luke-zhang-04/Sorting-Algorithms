@@ -1,12 +1,17 @@
-def nextGap(gap):
+from typing import List
+
+
+def nextGap(gap: int) -> int:
     """Finds the next gap to increment the sort by"""
     newGap = (gap * 10) // 13
 
     return 1 if newGap < 1 else newGap
 
 
-def combSort(array):
-    """Main combsort function"""
+def combSort(array: List[int]) -> None:
+    """Main combsort function\n
+    Sorts array in place; returns None
+    """
     gap, swapped = len(array), True
 
     while gap > 1 or (gap > 1 and not swapped):

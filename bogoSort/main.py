@@ -1,11 +1,12 @@
 # if shuffled_array = randomSequence(0, x <= 5), the algorithm should work fine. Otherwise, a recursion error is likely
 
 from random import shuffle
+from typing import List
 
 
-def issorted(array):
-    """Checks if an array is sorted
-    Param array is an array of numbers
+def issorted(array: List[int]) -> bool:
+    """Checks if an array is sorted\n
+    Param array is an array of numbers\n
     Returns true if sorted, false if not
     """
     for i in range(len(array) - 1):
@@ -15,8 +16,10 @@ def issorted(array):
     return True
 
 
-def bogoSort(array):
-    """Main bogosort function"""
+def bogoSort(array: List[int]) -> None:
+    """Main bogosort function\n
+    Sorts array in place, returns void
+    """
     shuffle(array)
     return (
         array if issorted(array) else bogoSort(array)

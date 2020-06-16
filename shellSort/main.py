@@ -1,9 +1,13 @@
-def shellSort(array):
-    """Main shellsort algorithm
+from typing import List
 
-    returns void; sorts in-place
+
+def shellSort(array: List[int]) -> None:
+    """Main shellsort algorithm\n
+    Sorts array in-place; returns None.
     """
-    gap = len(array) // 2 # Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
+    gap = (
+        len(array) // 2
+    )  # Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
     while gap >= 1:
         for i in range(gap, len(array)):  # Iterate through array, starting from gap
             comparator = array[i]  # Make comparisons with this

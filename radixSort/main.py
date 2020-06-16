@@ -1,7 +1,10 @@
-def countingSort(array, exp):
-    """Counting sort for radix sort
+from typing import List
 
-    exp indexes the digit to sort with
+
+def countingSort(array: List[int], exp: int) -> None:
+    """Counting sort for radix sort\n
+    exp indexes the digit to sort with\n
+    Returns None; sets array to new array.
     """
 
     count = [0 for _ in range(max(array) + 1)]
@@ -21,12 +24,14 @@ def countingSort(array, exp):
     array[:] = output
 
 
-def digit(number, n):
-    """Indexes integer without type conversion (e.g digit(253, 1) returns 5)"""
+def digit(number: int, n: int) -> int:
+    """Indexes integer without type conversion (e.g digit(253, 1) returns 5)\n
+    Index of number is n
+    """
     return number // 10 ** n % 10
 
 
-def seperate(array, digit):
+def seperate(array: List[int], digit: int) -> None:
     """Seperates numbers in an array by digit while grouping them accordingly"""
 
     digit = 10 ** digit
@@ -38,7 +43,6 @@ def seperate(array, digit):
 
     minimum = int("".join(minimum))
 
-    # for i in range(minimum+(10*digit), max(array)+(10*digit), 10*digit):
     for i in range(minimum + digit, max(array) + digit + 1, digit):
         beg = counter
 
@@ -52,12 +56,21 @@ def seperate(array, digit):
     array[:] = output
 
 
-def radixSort(array, lsd=False, msd=False, **kwargs):
+def radixSort(array: List[int], lsd: bool = False, msd: bool = False, **kwargs) -> None:
+    """Main radix sort function\n
+    Set lsd or msd to true. If none are set, LSD is automatically executed\n
+    Leave kwargs as-is for normal sorting\n
+    Sorts array in-place; returns None
+    """
+
     if lsd:  # LSD radix sort
         for i in range(len(str(max(array)))):
             countingSort(array, i)
 
     elif msd:  # MSD radix sort
+        if "digit" not in kwargs:
+            kwargs["digit"] = None
+
         digit = len(str(max(array))) - 1 if kwargs["digit"] == None else kwargs["digit"]
         output = []
 
@@ -100,5 +113,5 @@ if __name__ == "__main__":
     print(shuffledArray1, "\n")
 
     print("MSD")
-    radixSort(shuffledArray2, msd=True, digit=None)
+    radixSort(shuffledArray2, msd=True)
     print(shuffledArray2)
