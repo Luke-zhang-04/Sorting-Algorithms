@@ -12,6 +12,7 @@ from quickSort import quickSort
 from radixSort import radixSort
 from selectionSort import selectionSort
 from shellSort import shellSort
+from timSort import timSort
 
 from utils import randomSequence
 

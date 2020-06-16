@@ -109,6 +109,15 @@ func main() {
 			print(shuffledArray)
 			continue
 
+		case "timSort", "tim":
+			print("TIM SORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.TimSort(shuffledArray, 32)
+			print(shuffledArray)
+			continue
+
 		}
 
 		sort = sortValues[arg]

@@ -17,16 +17,17 @@
 #include "radixSort/main.h"
 #include "selectionSort/main.h"
 #include "shellSort/main.h"
+#include "timSort/main.h"
 
 #include "utils/utils.h"
 
-#define NUM_ALGOS 14
+#define NUM_ALGOS 15
 
 using std::cout;
 using std::endl;
 using std::string;
 
-void fillerSort(std::vector<int> &array) {
+void fillerFunction(std::vector<int> &array) {
     return;
 }
 
@@ -47,6 +48,7 @@ int main(int argc, char* argv[]) {
         {"msd", 12}, {"radixMSD", 12},
         {"selectionSort", 13}, {"selection", 13}, {"select", 13},
         {"shell", 14}, {"shellSort", 14},
+        {"tim", 15}, {"timSort", 15},
     };
 
     std::array<string, NUM_ALGOS+1> algoMessages = {
@@ -63,8 +65,9 @@ int main(int argc, char* argv[]) {
         "QUICKSORT",
         "RADIX SORT LSD",
         "RADIX SORT MSD",
-        "SELECTIONSORT,"
-        "SHELL SORT"
+        "SELECTION SORT",
+        "SHELL SORT",
+        "TIM SORT",
     };
 
     std::array< std::function<void(std::vector<int>&)>, NUM_ALGOS+1> algos = {
@@ -76,13 +79,14 @@ int main(int argc, char* argv[]) {
         countingSort,
         gnomeSort,
         insertionSort,
-        fillerSort,
-        fillerSort,
-        fillerSort,
-        fillerSort,
-        fillerSort,
+        fillerFunction,
+        fillerFunction,
+        fillerFunction,
+        fillerFunction,
+        fillerFunction,
         selectionSort,
         shellSort,
+        fillerFunction,
     };
 
     for (int i = 1; i < argc; i++) {
@@ -138,6 +142,16 @@ int main(int argc, char* argv[]) {
 
             utils::printArray(shuffledArray);
             radixSort(shuffledArray, "msd");
+            cout << "\n" << endl;
+            utils::printArray(shuffledArray);
+
+            break;
+        
+        case 15:
+            cout << algoMessages[algoNum] << endl;
+
+            utils::printArray(shuffledArray);
+            timSort(shuffledArray);
             cout << "\n" << endl;
             utils::printArray(shuffledArray);
 
