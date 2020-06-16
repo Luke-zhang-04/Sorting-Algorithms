@@ -20,7 +20,7 @@ python3 . bogoSort bubbleSort
 #### Install dependencies ####
 With Yarn:
 ```bash
-yarn
+yarn insall
 ```
 With NPM:
 ```bash
@@ -45,6 +45,7 @@ Options:
   -quick, --quickSort              Run quickSort sort algorithm
   -lsd, --radixLSD                 Run radix sort least significant digit algorithm
   -msd, --radixMSD                 Run raidx sort most significant digit algorithm
+  -shell, --shellSort              Run raidx sort most significant digit algorithm
   -h, --help                       display help for command
 ```
 Example:

@@ -19,6 +19,7 @@ func main() {
 		"gnomeSort": 4, "gnome": 4,
 		"insertionSort": 5, "insertion": 5, "insert": 5,
 		"selectionSort": 6, "selection": 6, "select": 6,
+		"shellSort": 7, "shell": 7,
 	}
 
 	functions := map[int]func([]int){
@@ -28,6 +29,7 @@ func main() {
 		4: sorts.GnomeSort,
 		5: sorts.InsertionSort,
 		6: sorts.SelectionSort,
+		7: sorts.ShellSort,
 	}
 
 	messages := map[int]string{
@@ -37,6 +39,7 @@ func main() {
 		4: "GNOME SORT",
 		5: "INSERTION SORT",
 		6: "SELECTION SORT",
+		7: "SHELL SORT",
 	}
 
 	for _, arg := range args {

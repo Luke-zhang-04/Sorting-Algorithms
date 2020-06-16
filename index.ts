@@ -19,6 +19,7 @@ program
     .option("-quick, --quickSort", "Run quickSort sort algorithm")
     .option("-lsd, --radixLSD", "Run radix sort least significant digit algorithm")
     .option("-msd, --radixMSD", "Run raidx sort most significant digit algorithm")
+    .option("-shell, --shellSort", "Run raidx sort most significant digit algorithm")
 
 program.parse(process.argv)
 
