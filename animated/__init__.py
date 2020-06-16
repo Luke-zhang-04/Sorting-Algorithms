@@ -137,7 +137,6 @@ class Menu:
         ).grid(row=0, column=2, columnspan=8)
 
         for _, (_, sort) in enumerate(self.sorts.items()):
-            print(sort)
             Button(
                 self.root,
                 text=sort["title"],

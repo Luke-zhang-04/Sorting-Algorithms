@@ -5,10 +5,7 @@ from time import sleep
 from typing import List
 from tkinter import Tk
 
-try:
-    from animator import Animator
-except ModuleNotFoundError:
-    from animated import Animator
+from animated import Animator
 
 
 class BubbleSort(Animator):
