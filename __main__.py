@@ -9,6 +9,7 @@ from insertionSort import insertionSort
 from mergeSort import mergeSort
 import mergeSortInPlace as IPMergeSort
 from quickSort import quickSort
+from radixSort import radixSort
 
 from utils import randomSequence
 
@@ -41,6 +42,17 @@ for target in args:
         shuffledArray = randomSequence(0, 1000)
         print(shuffledArray, end="\n\n")
         IPMergeSort.mergeSort(shuffledArray)
+        print(shuffledArray, end="\n\n")
+        continue
+    elif target in ("radix", "radixLSD", "radixSortLSD"):
+        shuffledArray = randomSequence(0, 1000)
+        print(shuffledArray, end="\n\n")
+        radixSort(shuffledArray)
+        print(shuffledArray, end="\n\n")
+    elif target in ("radixMSD", "radixSortMSD"):
+        shuffledArray = randomSequence(0, 1000)
+        print(shuffledArray, end="\n\n")
+        radixSort(shuffledArray, msd=True, digit=None)
         print(shuffledArray, end="\n\n")
         continue
 

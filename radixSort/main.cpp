@@ -1,29 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <random>
 #include <string>
+#include <math.h>
 
-using std::cout;
-using std::endl;
+#include "../utils/max.h"
+#include "./main.h"
+
 using std::string;
 
-std::vector<int> random_sequence(int minimum, int maximum) { //returns a shuffled array
-    std::vector<int> array;
-    for (int i = minimum; i < maximum; i++) { //create array and append numbers to it
-        array.push_back(i);
-    }
-    std::shuffle(std::begin(array), std::end(array), std::default_random_engine()); //shuffle the array
-    return array;
-}
-
-void printArray(std::vector<int> &array) {
-    std::cout << "[";
-    for (unsigned int i = 0; i < array.size()-1; i++) {
-        std::cout << std::to_string(array[i]) << ", ";
-    }
-    std::cout << std::to_string(array[array.size()-1]) << "]" << std::endl;
-}
 
 int min(std::vector<int> &array) {
     int smallest = array[0];
@@ -35,35 +19,28 @@ int min(std::vector<int> &array) {
     return smallest;
 }
 
-int max(std::vector<int> &array) {
-    int largest = array[0];
-    for (const int &i : array) {
-        if (i > largest) {
-            largest = i;
-        }
-    }
-    return largest;
-}
-
 int digit(int number, int n) {
-    int res = number / int(pow(10, n)) % 10;
-    return res;
+    return number / int(pow(10, n)) % 10;
 }
 
-std::string charsToString(std::vector<char> &chars) {
+string charsToString(std::vector<char> &chars) {
     int i; 
-    std::string s = ""; 
+    string s = ""; 
+
     for (i = 0; i < chars.size(); i++) { 
         s = s + chars[i];
-    } 
+    }
+
     return s; 
 }
 
-std::vector<char> list(std::string str) {
+std::vector<char> list(string str) {
     std::vector<char> res;
+
     for (const char &i : str) {
         res.push_back(i);
     }
+
     return res;
 }
 
@@ -78,10 +55,14 @@ std::vector<std::vector<int>> seperate(std::vector<int> &array, int digit) {
         smallest[i+1] = '0';
     }
 
-    int minimum = std::stoi(charsToString(smallest));
+    const int minimum = std::stoi(charsToString(smallest));
     int beg;
 
-    for (unsigned int i = minimum+digit; i < max(array)+digit+1; i += digit) {
+    for (
+        unsigned int i = minimum + digit;
+        i < max(array) + digit + 1;
+        i += digit
+    ) {
         beg = counter;
 
 		while (counter <= array.size()) {
@@ -98,7 +79,7 @@ std::vector<std::vector<int>> seperate(std::vector<int> &array, int digit) {
     return output;
 }
 
-std::vector<int> counting_sort(std::vector<int> &array, int exp) {
+void countingSort(std::vector<int> &array, int exp) {
     std::vector<int> count;
     std::vector<int> output;
     for (unsigned int i = 0; i < max(array) + 1; i++) {
@@ -120,7 +101,7 @@ std::vector<int> counting_sort(std::vector<int> &array, int exp) {
         count[digit(array[i], exp)]--;
     }
 
-    return output;
+    array = output;
 }
 
 std::vector<int> combine(std::vector<int> &array1, std::vector<int> &array2) {
@@ -129,16 +110,16 @@ std::vector<int> combine(std::vector<int> &array1, std::vector<int> &array2) {
     return array;
 }
 
-std::vector<int> radix_sort(std::vector<int> &array, string mode, int digit = -3) {
+void radixSort(std::vector<int> &array, string mode, int digit) {
     if (mode == "lsd") {
         if (digit == -3) {
             digit = 0;
         }
 
 		for (unsigned int i = 0; i < std::to_string(max(array)).size(); i++) {
-			array = counting_sort(array, i);
+			countingSort(array, i);
 		}
-		return array;
+
     } else if (mode == "msd") {
         if (digit == -3) {
             digit = std::to_string(max(array)).size();
@@ -150,36 +131,20 @@ std::vector<int> radix_sort(std::vector<int> &array, string mode, int digit = -3
 		std::vector<int> output;
 
 		if (digit >= 0) {
-			auto arr = counting_sort(array, digit);
-			std::vector<std::vector<int>> array = seperate(arr, digit);
-			for (std::vector<int> &i : array) {
-                auto foo = radix_sort(i, "msd", digit-1);
-                output = combine(output, foo);
+			countingSort(array, digit);
+			auto array2 = seperate(array, digit);
+
+			for (std::vector<int> &i : array2) {
+                radixSort(i, "msd", digit-1);
+                output = combine(output, i);
 			}
 		} else {
 			output = array;
 		}
 
-		return output;
+        array = output;
 
 	} else {
-		return radix_sort(array, "lsd", 0);
+		radixSort(array, "lsd", 0);
 	}
-}
-
-int main() {
-    cout << "RADIX SORT" << endl;
-    std::vector<int> shuffled_array = random_sequence(0, 1000);
-
-    printArray(shuffled_array);
-    cout << endl;
-
-    cout << "LSD" << endl;
-    std::vector<int> sorted_array1 = radix_sort(shuffled_array, "lsd");
-    printArray(sorted_array1);
-
-    cout << "\nMSD" << endl;
-    std::vector<int> sorted_array2 = radix_sort(shuffled_array, "msd");
-    printArray(sorted_array2);
-    return 0;
 }

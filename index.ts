@@ -2,20 +2,23 @@ import bogoSort from "./bogoSort"
 import countingSort from "./countingSort"
 import mergeSort from "./mergeSort"
 import {default as mergeSortInPlace} from "./mergeSortInPlace"
+import radixSort from "./radixSort"
 import program from "commander"
 import randomSequence from "./utils"
 
 program
-    .option("-bogo, --bogoSort", 'Run bogo sort algorithm')
-    .option("-bubble, --bubbleSort", 'Run bubble sort algorithm')
-    .option("-cocktail, --cocktailShakerSort", 'Run cocktail shaker sort algorithm')
-    .option("-comb, --combSort", 'Run comb sort algorithm')
-    .option("-counting, --countingSort", 'Run counting sort algorithm')
-    .option("-gnome, --gnomeSort", 'Run gnome sort algorithm')
-    .option("-insertion, --insertionSort", 'Run insertion sort algorithm')
-    .option("-merge, --mergeSort", 'Run merge sort algorithm')
-    .option("-mergeIP, --mergeSortInPlace", 'Run in-place merge sort algorithm')
-    .option("-quick, --quickSort", 'Run quickSort sort algorithm')
+    .option("-bogo, --bogoSort", "Run bogo sort algorithm")
+    .option("-bubble, --bubbleSort", "Run bubble sort algorithm")
+    .option("-cocktail, --cocktailShakerSort", "Run cocktail shaker sort algorithm")
+    .option("-comb, --combSort", "Run comb sort algorithm")
+    .option("-counting, --countingSort", "Run counting sort algorithm")
+    .option("-gnome, --gnomeSort", "Run gnome sort algorithm")
+    .option("-insertion, --insertionSort", "Run insertion sort algorithm")
+    .option("-merge, --mergeSort", "Run merge sort algorithm")
+    .option("-mergeIP, --mergeSortInPlace", "Run in-place merge sort algorithm")
+    .option("-quick, --quickSort", "Run quickSort sort algorithm")
+    .option("-lsd, --radixLSD", "Run radix sort least significant digit algorithm")
+    .option("-msd, --radixMSD", "Run raidx sort most significant digit algorithm")
 
 program.parse(process.argv)
 
@@ -33,6 +36,7 @@ const notInPlace = (sort: (array: number[]) => number[]) => {
         "bogoSort",
         "countingSort",
         "mergeSort",
+        "radixMSD"
     ],
     commanderArgs = [
         "program",
@@ -51,6 +55,18 @@ for (const [key, value] of Object.entries(program)) {
         const shuffledArray = randomSequence(0, 7) // Max range
         console.log(shuffledArray)
         console.log(bogoSort(shuffledArray))
+        continue
+    } else if (key === "radixMSD") {
+        const shuffledArray = randomSequence(0, 1000)
+        console.log(shuffledArray)
+        radixSort(shuffledArray, "msd")
+        console.log(shuffledArray)
+        continue
+    } else if (key === "radixLSD") {
+        const shuffledArray = randomSequence(0, 1000)
+        console.log(shuffledArray)
+        radixSort(shuffledArray)
+        console.log(shuffledArray)
         continue
     }
 

@@ -40,6 +40,11 @@ Options:
   -counting, --countingSort        Run counting sort algorithm
   -gnome, --gnomeSort              Run gnome sort algorithm
   -insertion, --insertionSort      Run insertion sort algorithm
+  -merge, --mergeSort              Run merge sort algorithm
+  -mergeIP, --mergeSortInPlace     Run in-place merge sort algorithm
+  -quick, --quickSort              Run quickSort sort algorithm
+  -lsd, --radixLSD                 Run radix sort least significant digit algorithm
+  -msd, --radixMSD                 Run raidx sort most significant digit algorithm
   -h, --help                       display help for command
 ```
 Example:

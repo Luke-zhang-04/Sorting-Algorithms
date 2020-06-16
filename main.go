@@ -16,27 +16,24 @@ func main() {
 		"bubbleSort": 1, "bubble": 1,
 		"cocktailShakerSort": 2, "cocktail": 2,
 		"combSort": 3, "comb": 3,
-		"countingSort": 4, "counting": 4, "count": 4,
-		"gnomeSort": 5, "gnome": 5,
-		"insertionSort": 6, "insertion": 6, "insert": 6,
+		"gnomeSort": 4, "gnome": 4,
+		"insertionSort": 5, "insertion": 5, "insert": 5,
 	}
 
 	functions := map[int]func([]int){
 		1: sorts.BubbleSort,
 		2: sorts.CocktailShakerSort,
 		3: sorts.CombSort,
-		4: sorts.CountingSort,
-		5: sorts.GnomeSort,
-		6: sorts.InsertionSort,
+		4: sorts.GnomeSort,
+		5: sorts.InsertionSort,
 	}
 
 	messages := map[int]string{
 		1: "BUBBLE SORT",
 		2: "COCKTAIL SHAKER SORT",
 		3: "COMB SORT",
-		4: "COUNTING SORT",
-		5: "GNOME SORT",
-		6: "INSERTION SORT",
+		4: "GNOME SORT",
+		5: "INSERTION SORT",
 	}
 
 	for _, arg := range args {
@@ -50,6 +47,15 @@ func main() {
 			print()
 			sorts.BogoSort(shuffledArray)
 			print(shuffledArray)
+			continue
+
+		case "countingSort", "count", "counting":
+			print("MERGE SORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sortedArray := sorts.CountingSort(shuffledArray)
+			print(sortedArray)
 			continue
 
 		case "mergeSort", "merge":
@@ -75,9 +81,28 @@ func main() {
 			shuffledArray := utils.RandomSequence(0, 1000)
 			print(shuffledArray)
 			print()
-			sorts.QuickSort(shuffledArray, 0, len(shuffledArray) - 1)
+			sorts.QuickSort(shuffledArray, 0, len(shuffledArray)-1)
 			print(shuffledArray)
 			continue
+
+		case "radix", "radixSort", "radixLSD", "lsd", "radixSortLSD":
+			print("RADIX SORT LSD")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.RadixSort(&shuffledArray, 0, "lsd")
+			print(shuffledArray)
+			continue
+
+		case "radixMSD", "msd", "radixSortMSD":
+			print("RADIX SORT MSD")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.RadixSort(&shuffledArray, -2, "msd")
+			print(shuffledArray)
+			continue
+
 		}
 
 		sort = sortValues[arg]

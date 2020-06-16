@@ -1,7 +1,5 @@
 package utils
 
-// Seperate go utils folder because of problematic c++ files
-
 import (
 	"math/rand"
 	"time"
@@ -30,4 +28,26 @@ func Includes(array []int, target int) bool {
 	}
 
 	return false
+}
+
+// Max gets largest number in array
+func Max(array []int) int {
+	largest := array[0]
+	for _, i := range array {
+		if i > largest {
+			largest = i
+		}
+	}
+	return largest
+}
+
+// Min gets smallest number in array
+func Min(array []int) int {
+	smallest := array[0]
+	for _, i := range array {
+		if i < smallest {
+			smallest = i
+		}
+	}
+	return smallest
 }
