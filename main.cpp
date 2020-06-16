@@ -13,10 +13,12 @@
 #include "insertionSort/main.h"
 #include "mergeSort/main.h"
 #include "mergeSortInPlace/main.h"
+#include "quickSort/main.h"
+#include "radixSort/main.h"
 
 #include "utils/utils.h"
 
-#define NUM_ALGOS 9
+#define NUM_ALGOS 12
 
 using std::cout;
 using std::endl;
@@ -34,6 +36,9 @@ int main(int argc, char* argv[]) {
         {"insertionSort", 7}, {"insertion", 7}, {"insert", 7},
         {"mergeSort", 8}, {"merge", 8},
         {"mergeSortInPlace", 9}, {"mergeSortIP", 9}, {"mergeIP", 9}, {"IPMergeSort", 9}, {"IPMerge", 9},
+        {"quickSort", 10}, {"quick", 10},
+        {"radix", 11}, {"radixSort", 11}, {"lsd", 11}, {"radixLSD", 11},
+        {"msd", 12}, {"radixMSD", 12},
     };
 
     std::array<string, NUM_ALGOS+1> algoMessages = {
@@ -47,6 +52,9 @@ int main(int argc, char* argv[]) {
         "INSERTION SORT",
         "MERGE SORT",
         "IN PLACE MERGE SORT",
+        "QUICKSORT",
+        "RADIX SORT LSD",
+        "RADIX SORT MSD",
     };
 
     std::array< std::function<void(std::vector<int>&)>, NUM_ALGOS+1> algos = {
@@ -82,8 +90,37 @@ int main(int argc, char* argv[]) {
             cout << algoMessages[algoNum] << endl;
 
             utils::printArray(shuffledArray);
-            cout << "WTF" << endl;
             mergeSortInPlace(shuffledArray, 0, shuffledArray.size() - 1);
+            cout << "\n" << endl;
+            utils::printArray(shuffledArray);
+
+            break;
+        
+        case 10:
+            cout << algoMessages[algoNum] << endl;
+
+            utils::printArray(shuffledArray);
+            quickSort(shuffledArray);
+            cout << "\n" << endl;
+            utils::printArray(shuffledArray);
+            
+            break;
+
+        case 11:
+            cout << algoMessages[algoNum] << endl;
+
+            utils::printArray(shuffledArray);
+            radixSort(shuffledArray, "lsd");
+            cout << "\n" << endl;
+            utils::printArray(shuffledArray);
+
+            break;
+
+        case 12:
+            cout << algoMessages[algoNum] << endl;
+
+            utils::printArray(shuffledArray);
+            radixSort(shuffledArray, "msd");
             cout << "\n" << endl;
             utils::printArray(shuffledArray);
 

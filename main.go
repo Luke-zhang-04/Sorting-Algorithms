@@ -12,8 +12,32 @@ func main() {
 	print := fmt.Println
 	args := os.Args[1:]
 
+	sortValues := map[string]int{
+		"bubbleSort": 1, "bubble": 1,
+		"cocktailShakerSort": 2, "cocktail": 2,
+		"combSort": 3, "comb": 3,
+		"gnomeSort": 4, "gnome": 4,
+		"insertionSort": 5, "insertion": 5, "insert": 5,
+	}
+
+	functions := map[int]func([]int){
+		1: sorts.BubbleSort,
+		2: sorts.CocktailShakerSort,
+		3: sorts.CombSort,
+		4: sorts.GnomeSort,
+		5: sorts.InsertionSort,
+	}
+
+	messages := map[int]string{
+		1: "BUBBLE SORT",
+		2: "COCKTAIL SHAKER SORT",
+		3: "COMB SORT",
+		4: "GNOME SORT",
+		5: "INSERTION SORT",
+	}
+
 	for _, arg := range args {
-		var sort func([]int)
+		var sort int
 
 		switch arg {
 		case "bogoSort", "bogo":
@@ -25,39 +49,14 @@ func main() {
 			print(shuffledArray)
 			continue
 
-		case "bubbleSort", "bubble":
-			print("BUBBLE SORT")
-			sort = sorts.BubbleSort
-			break
-
-		case "cocktailShakerSort", "cocktail":
-			print("COCKTAIL SHAKER SORT")
-			sort = sorts.CocktailShakerSort
-			break
-
-		case "combSort", "comb":
-			print("COMB SORT")
-			sort = sorts.CombSort
-			break
-
-		case "countingSort", "counting", "count":
-			print("COUNTING SORT")
-			shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high
+		case "countingSort", "count", "counting":
+			print("MERGE SORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
 			print(shuffledArray)
 			print()
 			sortedArray := sorts.CountingSort(shuffledArray)
 			print(sortedArray)
 			continue
-
-		case "gnomeSort", "gnome":
-			print("GNOME SORT")
-			sort = sorts.GnomeSort
-			break
-
-		case "insertionSort", "insertion", "insert":
-			print("INSERTION SORT")
-			sort = sorts.InsertionSort
-			break
 
 		case "mergeSort", "merge":
 			print("MERGE SORT")
@@ -77,15 +76,41 @@ func main() {
 			print(shuffledArray)
 			continue
 
-		default:
-			print(fmt.Sprintf("NameError: %s is not a sorting algorithm. Check your casing.\n", arg))
+		case "quickSort", "quick":
+			print("QUICKSORT")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.QuickSort(shuffledArray, 0, len(shuffledArray)-1)
+			print(shuffledArray)
 			continue
+
+		case "radix", "radixSort", "radixLSD", "lsd", "radixSortLSD":
+			print("RADIX SORT LSD")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.RadixSort(&shuffledArray, 0, "lsd")
+			print(shuffledArray)
+			continue
+
+		case "radixMSD", "msd", "radixSortMSD":
+			print("RADIX SORT MSD")
+			shuffledArray := utils.RandomSequence(0, 1000)
+			print(shuffledArray)
+			print()
+			sorts.RadixSort(&shuffledArray, -2, "msd")
+			print(shuffledArray)
+			continue
+
 		}
 
-		shuffledArray := utils.RandomSequence(0, 1000) // Don't set this value too high
-		print(shuffledArray)
-		print()
-		sort(shuffledArray)
+		sort = sortValues[arg]
+		print(messages[sort])
+		shuffledArray := utils.RandomSequence(0, 1000)
+		print(shuffledArray, "\n")
+
+		functions[sort](shuffledArray)
 		print(shuffledArray)
 	}
 
