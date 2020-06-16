@@ -21,7 +21,7 @@ const combSort = (array: number[]): void => {
         swapped = true,
         swap = null
 
-    while (gap > 1 || (gap > 1 && !swapped)) {
+    while (gap >= 1 || (gap >= 1 && !swapped)) {
         gap = nextGap(gap)
         swapped = false
 
@@ -34,6 +34,10 @@ const combSort = (array: number[]): void => {
 
                 swapped = true
             }
+        }
+
+        if (!swapped && gap === 1) {
+            break
         }
     }
 }

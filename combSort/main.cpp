@@ -21,7 +21,7 @@ void combSort(std::vector<int> &array) {
     int gap = array.size();
     bool swapped = true;
 
-    while (gap > 1 || (gap > 1 && !swapped)) {
+    while (gap >= 1 || (gap >= 1 && !swapped)) {
         gap = nextGap(gap);
 		swapped = false;
 
@@ -30,6 +30,10 @@ void combSort(std::vector<int> &array) {
                 std::swap(array[i], array[i + gap]);
                 swapped = true;
             }
+        }
+
+        if (!swapped && gap == 1) {
+            break;
         }
     }
 
