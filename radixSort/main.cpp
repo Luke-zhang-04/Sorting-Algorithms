@@ -8,17 +8,6 @@
 
 using std::string;
 
-
-int min(std::vector<int> &array) {
-    int smallest = array[0];
-    for (const int &i : array) {
-        if (i < smallest) {
-            smallest = i;
-        }
-    }
-    return smallest;
-}
-
 int digit(int number, int n) {
     return number / int(pow(10, n)) % 10;
 }
