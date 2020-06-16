@@ -8,7 +8,7 @@
  * @returns void; sorts in-place
  */
 void shellSort(std::vector<int> &array) {
-    int gap = array.size()/2;
+    int gap = array.size() / 2; // Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
     while (gap >= 1) {
         for (int i = gap; i < array.size(); i++) { // Iterate through array, starting from gap
             int comparator = array[i]; // Make comparisons with this

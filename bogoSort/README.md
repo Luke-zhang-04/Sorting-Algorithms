@@ -1,2 +1,7 @@
-# bogo sort #
-According to Wikipeida, in computer science, bogosort (also known as permutation sort, stupid sort, slowsort, shotgun sort, or monkey sort) is a highly inefficient sorting algorithm based on the generate and test paradigm. The function successively generates permutations of its input until it finds one that is sorted. It is not useful for sorting, but may be used for educational purposes, to contrast it with more efficient algorithms. 
+# Bogo Sort #
+
+Bogosort, also known as stupid sort is one of the most efficient sorting algorithms. It is often the sorting algorithm of choice for people who like very slow programs and recursion depth errors.
+
+Bogo sort works by checking if the array is sorted, then randomly shuffling the array and checking again, and so on.
+
+Because it checks for whether the array is sorted or not first, it has a best case time complexity of `O(1)`, and a worst case of `O(n!)`.

@@ -3,7 +3,7 @@ def shellSort(array):
 
     returns void; sorts in-place
     """
-    gap = len(array) // 2
+    gap = len(array) // 2 # Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
     while gap >= 1:
         for i in range(gap, len(array)):  # Iterate through array, starting from gap
             comparator = array[i]  # Make comparisons with this

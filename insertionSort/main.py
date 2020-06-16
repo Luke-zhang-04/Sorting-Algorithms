@@ -19,8 +19,6 @@ def insertionSort(array):
                 section + 1
             ] = comparator  # If loop wasn't broken, insert comparator in the right spot
 
-    return array
-
 
 if __name__ == "__main__":
     try:
@@ -31,11 +29,11 @@ if __name__ == "__main__":
         dir_path = os.path.dirname(os.path.realpath(__file__))
         parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
         sys.path.insert(0, parent_dir_path)
-        from utils import random_sequence
+        from utils import randomSequence
 
     print("INSERTION SORT")
 
-    shuffledArray = random_sequence(0, 1000)
+    shuffledArray = randomSequence(0, 1000)
 
     print(shuffledArray, "\n")
 
