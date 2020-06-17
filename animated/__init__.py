@@ -11,6 +11,7 @@ import animated.cocktailShakerSort as cocktailShakerSort
 import animated.combSort as combSort
 import animated.countingSort as countingSort
 import animated.gnomeSort as gomeSort
+import animated.insertionSort as insertionSort
 
 
 class Menu:
@@ -64,7 +65,7 @@ class Menu:
             "col": 0,
             "row": 2,
             "colour": "blue",
-            "callback": lambda: print(),
+            "callback": lambda: insertionSort.main(),
         },
         "mergesort": {
             "title": "Merge sort",
