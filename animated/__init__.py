@@ -14,6 +14,7 @@ import animated.gnomeSort as gomeSort
 import animated.insertionSort as insertionSort
 import animated.mergeSort as mergeSort
 import animated.quickSort as quickSort
+import animated.radixSort as radixSort
 
 
 class Menu:
@@ -88,14 +89,14 @@ class Menu:
             "col": 3,
             "row": 2,
             "colour": "green",
-            "callback": lambda: print(),
+            "callback": lambda: radixSort.main("lsd"),
         },
         "radixsort MSD": {
             "title": "Radix MSD sort",
             "col": 4,
             "row": 2,
             "colour": "red",
-            "callback": lambda: print(),
+            "callback": lambda: radixSort.main("msd"),
         },
         "selectionsort": {
             "title": "Selection sort",
