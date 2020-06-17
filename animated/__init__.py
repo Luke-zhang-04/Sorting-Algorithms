@@ -12,6 +12,7 @@ import animated.combSort as combSort
 import animated.countingSort as countingSort
 import animated.gnomeSort as gomeSort
 import animated.insertionSort as insertionSort
+import animated.mergeSort as mergeSort
 
 
 class Menu:
@@ -72,7 +73,7 @@ class Menu:
             "col": 1,
             "row": 2,
             "colour": "steelBlue3",
-            "callback": lambda: print(),
+            "callback": lambda: mergeSort.main(),
         },
         "mergesortIP": {
             "title": "In place merge sort",
