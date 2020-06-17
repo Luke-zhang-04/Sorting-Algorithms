@@ -1,4 +1,4 @@
-"""Animated bogosort
+"""Animated comb sort
 Copyright (C) Luke Zhang | MIT License | https://luke-zhang-04.github.io/
 """
 from time import sleep
@@ -8,24 +8,34 @@ from tkinter import Tk
 from animated import Animator
 
 
-class BubbleSort(Animator):
+class CombSort(Animator):
+    @staticmethod
+    def nextGap(gap: int) -> int:
+        """Finds the next gap to increment the sort by"""
+        newGap = (gap * 10) // 13
+
+        return 1 if newGap < 1 else newGap
+
     def sort(self, array: List[int]) -> None:
-        """Main bubble sort algorithm
-        Sorts array in-place, returns None
+        """Main combsort function\n
+        Sorts array in place; returns None
         """
+        gap, swapped = len(array), True
 
-        for amt in range(len(array)):
-            swaps = 0
+        while gap >= 1 or (gap >= 1 and not swapped):
+            gap = CombSort.nextGap(gap)
+            swapped = False
 
-            for i in range(len(array) - 1 - amt):  # Iterate through the array
-                if array[i] > array[i + 1]:  # Swap if needed
-                    array[i], array[i + 1] = array[i + 1], array[i]
-                    swaps += 1
-                    self.render(array, cur=(i, i + 1))
-                    sleep(0.01)
+            for i in range(len(array) - gap):  # Iterate through the whole array
+                self.render(array, cur=(i, i + gap))
+                sleep(0.01)
 
-            if swaps == 0:
-                break  # Array is in order
+                if array[i] > array[i + gap]:  # Swap if needed
+                    array[i], array[i + gap] = array[i + gap], array[i]
+                    swapped = True
+
+            if not swapped and gap == 1:
+                break
 
 
 def main() -> int:
@@ -43,7 +53,7 @@ def main() -> int:
 
     root = Tk()
 
-    sorter = BubbleSort(
+    sorter = CombSort(
         root,
         background="black",
         width=root.winfo_screenwidth(),

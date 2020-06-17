@@ -14,7 +14,7 @@ def combSort(array: List[int]) -> None:
     """
     gap, swapped = len(array), True
 
-    while gap > 1 or (gap > 1 and not swapped):
+    while gap >= 1 or (gap >= 1 and not swapped):
         gap = nextGap(gap)
         swapped = False
 
@@ -22,6 +22,9 @@ def combSort(array: List[int]) -> None:
             if array[i] > array[i + gap]:  # Swap if needed
                 array[i], array[i + gap] = array[i + gap], array[i]
                 swapped = True
+
+        if not swapped and gap == 1:
+            break
 
 
 if __name__ == "__main__":

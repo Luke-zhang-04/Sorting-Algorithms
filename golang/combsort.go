@@ -16,7 +16,7 @@ func CombSort(array []int) {
 	gap := len(array)
 	swapped := true
 
-	for gap > 1 || (gap > 1 && !swapped) {
+	for gap >= 1 || (gap >= 1 && !swapped) {
 		gap = nextGap(gap)
 		swapped = false
 
@@ -25,6 +25,10 @@ func CombSort(array []int) {
 				array[i], array[i+gap] = array[i+gap], array[i]
 				swapped = true
 			}
+		}
+
+		if !swapped && gap == 1 {
+			break
 		}
 
 	}

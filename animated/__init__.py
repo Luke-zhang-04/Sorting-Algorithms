@@ -7,6 +7,14 @@ from animated.animator import Animator
 
 import animated.bogoSort as bogoSort
 import animated.bubbleSort as bubbleSort
+import animated.cocktailShakerSort as cocktailShakerSort
+import animated.combSort as combSort
+import animated.countingSort as countingSort
+import animated.gnomeSort as gomeSort
+import animated.insertionSort as insertionSort
+import animated.mergeSort as mergeSort
+import animated.quickSort as quickSort
+import animated.radixSort as radixSort
 
 
 class Menu:
@@ -32,88 +40,81 @@ class Menu:
             "col": 2,
             "row": 1,
             "colour": "red",
-            "callback": lambda: print(),
+            "callback": lambda: cocktailShakerSort.main(),
         },
         "combsort": {
             "title": "Comb sort",
             "col": 3,
             "row": 1,
             "colour": "grey10",
-            "callback": lambda: print(),
+            "callback": lambda: combSort.main(),
         },
         "countingsort": {
             "title": "Counting sort",
             "col": 4,
             "row": 1,
             "colour": "yellow",
-            "callback": lambda: print(),
+            "callback": lambda: countingSort.main(),
         },
         "gnomesort": {
             "title": "Gnome sort",
             "col": 5,
             "row": 1,
             "colour": "green",
-            "callback": lambda: print(),
+            "callback": lambda: gomeSort.main(),
         },
         "insetionsort": {
             "title": "Insertion sort",
             "col": 0,
             "row": 2,
             "colour": "blue",
-            "callback": lambda: print(),
+            "callback": lambda: insertionSort.main(),
         },
         "mergesort": {
             "title": "Merge sort",
             "col": 1,
             "row": 2,
             "colour": "steelBlue3",
-            "callback": lambda: print(),
-        },
-        "mergesortIP": {
-            "title": "In place merge sort",
-            "col": 2,
-            "row": 2,
-            "colour": "steelBlue1",
-            "callback": lambda: print(),
+            "callback": lambda: mergeSort.main(),
         },
         "quicksort": {
             "title": "Quick sort",
-            "col": 3,
+            "col": 2,
             "row": 2,
             "colour": "grey70",
-            "callback": lambda: print(),
+            "callback": lambda: quickSort.main(),
         },
         "radixsortlsd": {
             "title": "Radix LSD sort",
-            "col": 4,
+            "col": 3,
             "row": 2,
             "colour": "green",
-            "callback": lambda: print(),
+            "callback": lambda: radixSort.main("lsd"),
         },
         "radixsort MSD": {
             "title": "Radix MSD sort",
-            "col": 5,
+            "col": 4,
             "row": 2,
             "colour": "red",
-            "callback": lambda: print(),
+            "callback": lambda: radixSort.main("msd"),
         },
         "selectionsort": {
             "title": "Selection sort",
-            "col": 1.5,
-            "row": 3,
+            "col": 5,
+            "row": 2,
             "colour": "ivory3",
             "callback": lambda: print(),
         },
         "shellsort": {
             "title": "Shell sort",
-            "col": 2.5,
+            "col": 2,
             "row": 3,
             "colour": "mistyRose2",
             "callback": lambda: print(),
         },
         "timsort": {
             "title": "Tim sort",
-            "col": 3.5,
+            "col": 3,
             "row": 3,
             "colour": "blue",
             "callback": lambda: print(),
@@ -137,7 +138,6 @@ class Menu:
         ).grid(row=0, column=2, columnspan=8)
 
         for _, (_, sort) in enumerate(self.sorts.items()):
-            print(sort)
             Button(
                 self.root,
                 text=sort["title"],
