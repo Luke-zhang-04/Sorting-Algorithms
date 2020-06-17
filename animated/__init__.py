@@ -10,6 +10,7 @@ import animated.bubbleSort as bubbleSort
 import animated.cocktailShakerSort as cocktailShakerSort
 import animated.combSort as combSort
 import animated.countingSort as countingSort
+import animated.gnomeSort as gomeSort
 
 
 class Menu:
@@ -56,7 +57,7 @@ class Menu:
             "col": 5,
             "row": 1,
             "colour": "green",
-            "callback": lambda: print(),
+            "callback": lambda: gomeSort.main(),
         },
         "insetionsort": {
             "title": "Insertion sort",
