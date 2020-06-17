@@ -1,4 +1,4 @@
-"""Animated cocktail shaker sort
+"""Animated comb sort
 Copyright (C) Luke Zhang | MIT License | https://luke-zhang-04.github.io/
 """
 from time import sleep
