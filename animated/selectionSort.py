@@ -14,10 +14,10 @@ class SelectionSort(Animator):
         smallest = array[start]
         for i in range(start, len(array)):
             self.modColour(i, color="red")
-            self.modColour(i-1, color="white")
+            self.modColour(i - 1, color="white")
             if array[i] < smallest:
                 smallest = array[i]
-        
+
         return smallest
 
     def sort(self, array: List[int]) -> None:
@@ -29,7 +29,10 @@ class SelectionSort(Animator):
 
         for i in range(len(array)):  # Iterate through entire array
             index = array.index(self.min(array, i))  # Get index of smallest item
-            array[i], array[index] = array[index], array[i]  # Swap it to the correct spot
+            array[i], array[index] = (
+                array[index],
+                array[i],
+            )  # Swap it to the correct spot
             self.render(array, cur=(i, index))
             sleep(0.01)
 
