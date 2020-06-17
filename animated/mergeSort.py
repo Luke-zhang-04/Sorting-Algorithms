@@ -78,7 +78,7 @@ def main() -> int:
         sys.path.insert(0, parent_dir_path)
         from utils import randomSequence
 
-    shuffledArray = randomSequence(0, 200)
+    shuffledArray = randomSequence(0, 225)
 
     root = Tk()
 

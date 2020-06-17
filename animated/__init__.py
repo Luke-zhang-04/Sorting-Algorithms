@@ -15,6 +15,7 @@ import animated.insertionSort as insertionSort
 import animated.mergeSort as mergeSort
 import animated.quickSort as quickSort
 import animated.radixSort as radixSort
+import animated.selectionSort as selectionSort
 
 
 class Menu:
@@ -103,7 +104,7 @@ class Menu:
             "col": 5,
             "row": 2,
             "colour": "ivory3",
-            "callback": lambda: print(),
+            "callback": lambda: selectionSort.main(),
         },
         "shellsort": {
             "title": "Shell sort",

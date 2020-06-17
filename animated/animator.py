@@ -43,6 +43,9 @@ class Animator(CanvasPlus):
 
         self.update()
 
+    def modColour(self, index: int, color: str = "red") -> None:
+        self.itemconfig(self.rectangles[index], fill=color)
+
     def finished(self) -> None:
         """Call on finish, and make everything green"""
         for i in self:
