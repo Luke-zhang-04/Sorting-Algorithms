@@ -19,13 +19,13 @@ class RadixSort(Animator):
 
         for i in range(len(array)):
             count[RadixSort.digit(array[i], exp)] += 1
-            if (render):
+            if render:
                 self.render(array, cur=i)
                 sleep(0.01)
 
         for i in range(1, len(count)):
             count[i] += count[i - 1]
-            if (render):
+            if render:
                 self.render(array, cur=i)
 
         output = [0 for _ in range(len(array))]
@@ -33,7 +33,7 @@ class RadixSort(Animator):
         for i in range(len(array) - 1, -1, -1):
             output[count[RadixSort.digit(array[i], exp)] - 1] = array[i]
             count[RadixSort.digit(array[i], exp)] -= 1
-            if (render):
+            if render:
                 self.render(
                     output,
                     cur=(
@@ -71,7 +71,7 @@ class RadixSort(Animator):
 
             while counter <= len(array):
                 if counter == len(array) or array[counter] >= i:
-                    self.render(array, cur=(counter, beg, counter-beg))
+                    self.render(array, cur=(counter, beg, counter - beg))
                     if counter - beg > 0:
                         output.append(array[beg:counter])
                     break
