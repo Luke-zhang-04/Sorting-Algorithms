@@ -13,6 +13,7 @@ import animated.countingSort as countingSort
 import animated.gnomeSort as gomeSort
 import animated.insertionSort as insertionSort
 import animated.mergeSort as mergeSort
+import animated.quickSort as quickSort
 
 
 class Menu:
@@ -75,51 +76,44 @@ class Menu:
             "colour": "steelBlue3",
             "callback": lambda: mergeSort.main(),
         },
-        "mergesortIP": {
-            "title": "In place merge sort",
-            "col": 2,
-            "row": 2,
-            "colour": "steelBlue1",
-            "callback": lambda: print(),
-        },
         "quicksort": {
             "title": "Quick sort",
-            "col": 3,
+            "col": 2,
             "row": 2,
             "colour": "grey70",
-            "callback": lambda: print(),
+            "callback": lambda: quickSort.main(),
         },
         "radixsortlsd": {
             "title": "Radix LSD sort",
-            "col": 4,
+            "col": 3,
             "row": 2,
             "colour": "green",
             "callback": lambda: print(),
         },
         "radixsort MSD": {
             "title": "Radix MSD sort",
-            "col": 5,
+            "col": 4,
             "row": 2,
             "colour": "red",
             "callback": lambda: print(),
         },
         "selectionsort": {
             "title": "Selection sort",
-            "col": 1.5,
-            "row": 3,
+            "col": 5,
+            "row": 2,
             "colour": "ivory3",
             "callback": lambda: print(),
         },
         "shellsort": {
             "title": "Shell sort",
-            "col": 2.5,
+            "col": 2,
             "row": 3,
             "colour": "mistyRose2",
             "callback": lambda: print(),
         },
         "timsort": {
             "title": "Tim sort",
-            "col": 3.5,
+            "col": 3,
             "row": 3,
             "colour": "blue",
             "callback": lambda: print(),

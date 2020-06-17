@@ -21,7 +21,7 @@ class MergeSort(Animator):
         while start <= mid and start2 <= end:
             self.render(array, cur=(start, start2))
             sleep(0.01)
-            
+
             if array[start] <= array[start2]:
                 start += 1
             else:
@@ -78,7 +78,7 @@ def main() -> int:
         sys.path.insert(0, parent_dir_path)
         from utils import randomSequence
 
-    shuffledArray = randomSequence(0, 100)
+    shuffledArray = randomSequence(0, 200)
 
     root = Tk()
 
