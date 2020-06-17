@@ -17,6 +17,7 @@ import animated.quickSort as quickSort
 import animated.radixSort as radixSort
 import animated.selectionSort as selectionSort
 import animated.shellSort as shellSort
+import animated.timSort as timSort
 
 
 class Menu:
@@ -119,7 +120,7 @@ class Menu:
             "col": 3,
             "row": 3,
             "colour": "blue",
-            "callback": lambda: print(),
+            "callback": lambda: timSort.main(),
         },
     }
 
