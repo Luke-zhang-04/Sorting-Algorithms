@@ -53,6 +53,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Comb Sort")
+
     sorter = CombSort(
         root,
         background="black",

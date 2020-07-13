@@ -82,6 +82,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Merge Sort")
+
     sorter = MergeSort(
         root,
         background="black",

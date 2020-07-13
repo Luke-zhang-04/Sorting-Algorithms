@@ -52,6 +52,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Insertion Sort")
+
     sorter = InsertionSort(
         root,
         background="black",

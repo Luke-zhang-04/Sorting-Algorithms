@@ -52,6 +52,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Selection Sort")
+
     sorter = SelectionSort(
         root,
         background="black",

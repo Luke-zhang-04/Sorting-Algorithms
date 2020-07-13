@@ -56,6 +56,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Counting Sort")
+
     sorter = CountingSort(
         root,
         background="black",

@@ -100,6 +100,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Quick Sort")
+
     sorter = QuickSort(
         root,
         background="black",

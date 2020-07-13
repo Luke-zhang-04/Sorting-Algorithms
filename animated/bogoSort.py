@@ -49,6 +49,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Bogo Sort")
+
     sorter = BogoSort(
         root,
         background="black",

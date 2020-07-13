@@ -64,6 +64,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Cocktail Shaker Sort")
+
     sorter = CocktailShakerSort(
         root,
         background="black",

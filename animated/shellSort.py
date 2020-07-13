@@ -53,6 +53,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Shell Sort")
+
     sorter = ShellSort(
         root,
         background="black",

@@ -135,6 +135,8 @@ def main(type: str) -> int:
 
     root = Tk()
 
+    root.title("Radix Sort")
+
     sorter = RadixSort(
         root,
         background="black",

@@ -43,6 +43,8 @@ def main() -> int:
 
     root = Tk()
 
+    root.title("Bubble Sort")
+
     sorter = BubbleSort(
         root,
         background="black",
