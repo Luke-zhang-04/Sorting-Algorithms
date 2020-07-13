@@ -43,7 +43,7 @@ def main() -> int:
     shuffledArray = randomSequence(0, 100)
 
     root = Tk()
-    
+
     root.title("Gnome Sort")
 
     sorter = GnomeSort(

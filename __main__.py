@@ -29,6 +29,7 @@ if "-h" in args or "--help" in args or len(args) == 0:
         print(help.read())
     exit()
 
+
 def notInPlace(sort: Callable[[List[int]], List[int]]) -> None:
     shuffledArray = randomSequence(0, 1000)
     print(shuffledArray, end="\n\n")
