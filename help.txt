@@ -1,0 +1,18 @@
+Options:
+  bogoSort            Run bogo sort algorithm
+  bubbleSort          Run bubble sort algorithm
+  cocktailShakerSort  Run cocktail shaker sort algorithm
+  combSort            Run comb sort algorithm
+  countingSort        Run counting sort algorithm
+  gnomeSort           Run gnome sort algorithm
+  insertionSort       Run insertion sort algorithm
+  mergeSort           Run merge sort algorithm
+  mergeSortInPlace    Run in-place merge sort algorithm
+  quickSort           Run quickSort sort algorithm
+  radixLSD            Run radix sort least significant digit algorithm
+  radixMSD            Run raidx sort most significant digit algorithm
+  shellSort           Run raidx sort algorithm
+  timSort             Run tim sort algorithm
+  animate             Run animated sorts and GUI
+  help                display help for command
+  

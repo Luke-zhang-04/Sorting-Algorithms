@@ -23,6 +23,11 @@ import sys
 
 args = sys.argv[1:]
 
+if "-h" in args or "--help" in args or len(args) == 0:
+    print("Help for Sorting algorithms Python3\n")
+    with open("./help.txt") as help:
+        print(help.read())
+    exit()
 
 def notInPlace(sort: Callable[[List[int]], List[int]]) -> None:
     shuffledArray = randomSequence(0, 1000)
