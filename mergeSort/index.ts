@@ -2,12 +2,12 @@ import randomSequence from "../utils"
 
 /**
  * Merges two arrays array1 and array2
- * @param {Array.<number>} array1 - first array to merge with
- * @param {Array.<number>} array2 - second array to merge with
- * @returns {Array.<number>} merges array
+ * @param array1 - first array to merge with
+ * @param array2 - second array to merge with
+ * @returns merges array
  */
-const merge = (array1: number[], array2: number[]): number[] => {
-    const array = []
+const merge = <T>(array1: T[], array2: T[]): T[] => {
+    const array: T[] = []
     let first = 0,
         second = 0
 
@@ -41,10 +41,10 @@ const merge = (array1: number[], array2: number[]): number[] => {
 
 /**
  * Main mergesort algorithm
- * @param {Array.<number>} array - array to sort
- * @returns {Array.<number>} sorted array; does not sort in-place
+ * @param array - array to sort
+ * @returns sorted array; does not sort in-place
  */
-const mergeSort = (array: number[]): number[] => {
+const mergeSort = <T>(array: T[]): T[] => {
     if (array.length > 1) {
         // Split array into two halves
         const half = array.length / 2

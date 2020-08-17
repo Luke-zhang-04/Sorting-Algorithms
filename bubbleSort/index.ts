@@ -2,12 +2,12 @@ import randomSequence from "../utils"
 
 /**
  * Main bubble sort function
- * @param {Array.<number>} array - array to sort
- * @returns {void} void; sorts in place
+ * @param array - array to sort
+ * @returns void; sorts in place
  */
-const bubbleSort = (array: number[]): void => {
+const bubbleSort = <T>(array: T[]): void => {
     let swaps: number, // Number of swaps
-        temp: number // For swapping
+        temp: T // For swapping
 
     for (let amt = 0; amt < array.length; amt++) {
         swaps = 0

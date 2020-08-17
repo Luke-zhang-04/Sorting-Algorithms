@@ -2,11 +2,11 @@ import randomSequence from "../utils"
 
 /**
  * Main gnomesort function
- * @param {Array.<number>} array - array to sort
- * @returns {void} void; sorts in place
+ * @param array - array to sort
+ * @returns void; sorts in place
  */
-const gnomeSort = (array: number[]): void => {
-    let temp,
+const gnomeSort = <T>(array: T[]): void => {
+    let temp: T,
         i = 0
         
 	while (i < array.length) { // Iterate until end of array

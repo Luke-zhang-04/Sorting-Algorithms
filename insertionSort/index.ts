@@ -2,19 +2,19 @@ import randomSequence from "../utils"
 
 /**
  * Main insertionsort function
- * @param {Array.<number>} array - array to sort
- * @returns {void} void; sorts in-place
+ * @param array - array to sort
+ * @returns void; sorts in-place
  */
-const insertionSort = (array: number[]): void => {
-    let comparator, // Make comparison with this value
-        section 
+const insertionSort = <T>(array: T[]): void => {
+    let comparator: T, // Make comparison with this value
+        section: number 
 
     for (let i = 0; i < array.length; i++) { // Iterate through entire array
 		comparator = array[i]
         section = i - 1
         
 		while (section >= 0 && comparator < array[section]) { // Iterate through array from i to 0 backwards
-			array[section+1] = array[section] // If comparator <= array[section], move array[section] forward to make space
+			array[section + 1] = array[section] // If comparator <= array[section], move array[section] forward to make space
 			section --
         }
         

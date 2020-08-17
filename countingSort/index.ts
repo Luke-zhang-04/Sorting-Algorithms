@@ -2,8 +2,8 @@ import randomSequence from "../utils"
 
 /**
  * Main countingsort function
- * @param {Array.<number>} array - array to sort
- * @returns {Array.<number | null>} sorted array; does not sort in-place
+ * @param array - array to sort
+ * @return sorted array; does not sort in-place
  */
 const countingSort = (array: number[]):(null | number)[] => {
     // Create array with zeros

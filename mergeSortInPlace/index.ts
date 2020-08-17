@@ -3,14 +3,14 @@ import randomSequence from "../utils"
 /**
  * Merges an array with indexes start, middle, and end in place
  * Merges arrays array[start:mid] and array[mid:end]
- * @param {Array.<number>} array main array
- * @param {number} start - starting point of segment to be merged
- * @param {number} mid - middle point of segment to be merged
- * @param {number} end - end point of segment to be merged
- * @returns {void} void; merges in-place
+ * @param array main array
+ * @param start - starting point of segment to be merged
+ * @param mid - middle point of segment to be merged
+ * @param end - end point of segment to be merged
+ * @returns void; merges in-place
  */
-const merge = (
-    array: number[],
+const merge = <T>(
+    array: T[],
     start: number,
     mid: number,
     end: number,
@@ -44,12 +44,12 @@ const merge = (
 
 /**
  * Main mergesort function
- * @param {Array.<number>} array - array to sort
- * @param {number} left - beginning of segment to be sorted (pass in 0 if sorting entire array)
- * @param {number} right - end of segment to be sorted (pass in array.length - 1 if sorting entire array)
- * @returns {void} void; sorts in-place
+ * @param array - array to sort
+ * @param left - beginning of segment to be sorted (pass in 0 if sorting entire array)
+ * @param right - end of segment to be sorted (pass in array.length - 1 if sorting entire array)
+ * @returns void; sorts in-place
  */
-const mergeSort = (array: number[], left?: number, right?: number): void => {
+const mergeSort = <T>(array: T[], left?: number, right?: number): void => {
     if (left === undefined || right === undefined) {
         [left, right] = [0, array.length - 1]
     }

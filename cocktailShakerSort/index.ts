@@ -2,10 +2,10 @@ import randomSequence from "../utils"
 
 /**
  * Main cocktail shaker sort function
- * @param {Array.<number>} array - array to sort
- * @returns {void} void; sorts array in place
+ * @param array - array to sort
+ * @returns void; sorts array in place
  */
-const cocktailShakerSort = (array: number[]): void => {
+const cocktailShakerSort = <T>(array: T[]): void => {
     let swaps, // Number of swaps
         temp, // For swapping
         section

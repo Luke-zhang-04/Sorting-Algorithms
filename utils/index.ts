@@ -1,8 +1,8 @@
 /**
  * Generates an array of random numbers
- * @param {number} minimum - num number to start with
- * @param {number} maximum - max number to start with
- * @returns {Array.<number>} array of random numbers
+ * @param minimum - num number to start with
+ * @param maximum - max number to start with
+ * @returns array of random numbers
  */
 const randomSequence = (minimum: number, maximum: number): number[] => {
     const array = []

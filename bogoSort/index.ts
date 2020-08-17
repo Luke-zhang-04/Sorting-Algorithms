@@ -2,10 +2,10 @@ import randomSequence from "../utils"
 
 /**
  * Shuffles an array
- * @param {Array.<number>} array - array to be shuffled
- * @returns {Array.<number>} array of shuffled numbers
+ * @param array - array to be shuffled
+ * @returns array of shuffled numbers
  */
-const shuffle = (array: number[]): number[] => {
+const shuffle = <T>(array: T[]): T[] => {
     array.sort(() => Math.random() - 0.5) // Shuffle the array
 
     return array
@@ -13,10 +13,10 @@ const shuffle = (array: number[]): number[] => {
 
 /**
  * Checks if an array is sorted
- * @param {Array.<number>} array - array to check
- * @returns {boolean} true if sorted false otherwise
+ * @param array - array to check
+ * @returns true if sorted false otherwise
  */
-const issorted = (array: number[]): boolean => {
+const issorted = <T>(array: T[]): boolean => {
     for (let i = 0; i < array.length - 1; i++) {
 		if (array[i + 1] < array[i]) {
 			return false
@@ -28,10 +28,10 @@ const issorted = (array: number[]): boolean => {
 
 /**
  * Sorts array with bogosort
- * @param {Array.<number>} array array to sort
- * @returns {Array.<number>} sorted array
+ * @param array array to sort
+ * @returns sorted array
  */
-const bogoSort = (array: number[]): number[] => {
+const bogoSort = <T>(array: T[]): T[] => {
     array = shuffle(array) //shuffle the array
 
 	return issorted(array) ? array : bogoSort(array)

@@ -2,17 +2,27 @@ import randomSequence from "../utils"
 
 /**
  * Finds smallest number in an array
- * @param {Array.<number>} array - array to find smallest number in
- * @returns {number} smallest number in array
+ * @param array - array to find smallest number in
+ * @returns smallest number in array
  */
-const min = (array: number[]): number => Math.min.apply(Math, array),
+const min = <T>(array: T[]): T => {
+        let smallest = array[0]
+
+        for (const val of array) {
+            if (val < smallest) {
+                smallest = val
+            }
+        }
+
+        return smallest
+    },
 
     /**
      * Main selectionsort function
-     * @param {Array.<number>} - array to search
-     * @returns {void} void; sorts in-place
+     * @param - array to search
+     * @returns void; sorts in-place
      */
-    selectionSort = (array: number[]): void => {
+    selectionSort = <T>(array: T[]): void => {
         let ind
         let temp
         for (let i = 0; i < array.length; i++) {

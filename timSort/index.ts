@@ -2,39 +2,39 @@ import randomSequence from "../utils"
 
 /**
  * Main insertionsort function
- * @param {Array.<number>} array - array to sort
- * @param {number} start - start of array segment
- * @param {number} end - end of array segment
- * @returns {void} void; sorts in-place
+ * @param array - array to sort
+ * @param start - start of array segment
+ * @param end - end of array segment
+ * @returns void; sorts in-place
  */
-const insertionSort = (array: number[], start: number, end: number): void => {
-    let comparator, // Make comparison with this value
-        section 
+const insertionSort = <T>(array: T[], start: number, end: number): void => {
+        let comparator: T, // Make comparison with this value
+            section: number
 
-    for (let i = start + 1; i < end; i++) { // Iterate through entire array
-		comparator = array[i]
-        section = i - 1
-        
-		while (section >= start && comparator < array[section]) { // Iterate through array from i to 0 backwards
-			array[section + 1] = array[section] // If comparator <= array[section], move array[section] forward to make space
-			section --
+        for (let i = start + 1; i < end; i++) { // Iterate through entire array
+            comparator = array[i]
+            section = i - 1
+            
+            while (section >= start && comparator < array[section]) { // Iterate through array from i to 0 backwards
+                array[section + 1] = array[section] // If comparator <= array[section], move array[section] forward to make space
+                section --
+            }
+            
+            array[section + 1] = comparator // Insert comparator into the array, in its correct position
         }
-        
-        array[section + 1] = comparator // Insert comparator into the array, in its correct position
-	}
-},
+    },
 
     /**
      * Merges an array with indexes start, middle, and end in place
      * Merges arrays array[start:mid] and array[mid:end]
-     * @param {Array.<number>} array main array
-     * @param {number} start - starting point of segment to be merged
-     * @param {number} mid - middle point of segment to be merged
-     * @param {number} end - end point of segment to be merged
-     * @returns {void} void; merges in-place
+     * @param array main array
+     * @param start - starting point of segment to be merged
+     * @param mid - middle point of segment to be merged
+     * @param end - end point of segment to be merged
+     * @returns void; merges in-place
      */
-    merge = (
-        array: number[],
+    merge = <T>(
+        array: T[],
         start: number,
         mid: number,
         end: number,
@@ -67,11 +67,11 @@ const insertionSort = (array: number[], start: number, end: number): void => {
     },
 
     /**
-     * @param {Array.<number>} array - array to sort
-     * @param {number} run - blocks to sort in. Should be a power of two. 32 by default
-     * @returns {void} void; sorts in-place
+     * @param array - array to sort
+     * @param run - blocks to sort in. Should be a power of two. 32 by default
+     * @returns void; sorts in-place
      */
-    timSort = (array: number[], run: number = 32): void => {
+    timSort = <T>(array: T[], run: number = 32): void => {
         // Run insertionsort on the blocks
         for (let i = 0; i < array.length; i += run) {
             insertionSort(array, i, Math.min(i + run, array.length))

@@ -2,14 +2,14 @@ import randomSequence from "../utils"
 
 /**
  * Moves array elements to the correct sides of pivot
- * @param {Array.<number>} array - array to partition
- * @param {number} left - beginning of array segment to partition
- * @param {number} right - end of array segment to partition
- * @param {number} pt - pivot point
- * @returns {number} new pivot
+ * @param array - array to partition
+ * @param left - beginning of array segment to partition
+ * @param right - end of array segment to partition
+ * @param pt - pivot point
+ * @returns new pivot
  */
-const partition = (
-    array: number[],
+const partition = <T>(
+    array: T[],
     left: number,
     right: number,
     pt: number,
@@ -52,12 +52,12 @@ const partition = (
 
 /**
  * Main quicksort function
- * @param {Array.<number>} array - array to sort
- * @param {number | undefined} left - start of array segment to sort, leave undefined for whole array
- * @param {number | undefined} right - end of array segment to sort, leave undefined for whole array
- * @returns {void} void; sorts in-place
+ * @param array - array to sort
+ * @param left - start of array segment to sort, leave undefined for whole array
+ * @param right - end of array segment to sort, leave undefined for whole array
+ * @returns void; sorts in-place
  */
-const quickSort = (array: number[], left?: number, right?: number): void => {
+const quickSort = <T>(array: T[], left?: number, right?: number): void => {
     if (left === undefined || right === undefined) {
         [left, right] = [0, array.length - 1]
     }

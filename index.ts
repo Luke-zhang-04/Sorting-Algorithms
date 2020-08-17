@@ -23,7 +23,6 @@ program.parse(process.argv)
 
 /**
  * Function to run sorting algorithms that don't sort in-place
- * 
  */
 const notInPlace = (sort: (array: number[]) => number[]) => {
     const shuffledArray = randomSequence(0, 1000) // Max range

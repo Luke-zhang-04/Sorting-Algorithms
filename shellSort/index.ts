@@ -2,10 +2,10 @@ import randomSequence from "../utils"
 
 /**
  * Main shellsort function
- * @param {Array.<number>} array - array to sort
- * @returns {void} void; sorts in-place
+ * @param array - array to sort
+ * @returns void; sorts in-place
  */
-const shellSort = (array: number[]): void => {
+const shellSort = <T>(array: T[]): void => {
     let gap = Math.floor(array.length/2) // Alternate gap sequence 4**iterations + 3 * 2**iterations + 1
 
     while (gap >= 1) {
