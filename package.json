@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "npx tsc -p ."
+  },
   "dependencies": {
     "@types/commander": "^2.12.2",
     "@types/node": "^14.0.13",

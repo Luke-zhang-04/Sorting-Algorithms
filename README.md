@@ -1,5 +1,5 @@
 # Sorting Algorithms #
-A collection of sorting algorithms in Python 3, Golang, JavaScript, and C++. Algorithms range from bogo sort to bubble sort to merge sort. I also use tkinter to animate the algorithms with bar graphs.
+A collection of sorting algorithms in Python 3, Golang, TypeScript, and C++. Algorithms range from bogo sort to bubble sort to merge sort. I also use tkinter to animate the algorithms with bar graphs.
 
 ## How to run ##
 ### Python ###
@@ -25,12 +25,22 @@ python3 . bogoSort bubbleSort
 #### Install dependencies ####
 With Yarn:
 ```bash
-yarn insall
+yarn --frozen-lockfile
 ```
 With NPM:
 ```bash
-npm i
+npm ci
 ```
+### Build ###
+With Yarn:
+```bash
+yarn build
+```
+With NPM:
+```bash
+npm run build
+```
+
 #### Run Program ####
 For all options, run
 ```bash
