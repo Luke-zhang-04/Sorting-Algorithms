@@ -1,7 +1,4 @@
 import bogoSort from "./bogoSort"
-import countingSort from "./countingSort"
-import mergeSort from "./mergeSort"
-import {default as mergeSortInPlace} from "./mergeSortInPlace"
 import radixSort from "./radixSort"
 import program from "commander"
 import randomSequence from "./utils"
